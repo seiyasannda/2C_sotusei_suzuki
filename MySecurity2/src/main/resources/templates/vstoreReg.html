@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>ホーム画面</title>
+</head>
+<body>
+	<div>
+		
+		<form th:action="@{/VstoreReg}" method="post">
+		
+                <label for="Sname">店舗名:</label>
+                <input type="text" id="Sname" name="Sname" required>
+              
+               <label for="Simg">店舗外観:</label>
+                <input type="file" id="Simg" name="Simg" required>
+                
+                 <label for="Shour">営業時間:</label>
+                 <input type="time" name="example1"value="00:00">
+                 ～<input type="time" name="example2"value="00:00">
+                
+                
+                <label for="Sadd">住所:</label>
+               
+                <label>
+				    <span>郵便番号</span>
+				    <input type="text" name="postal_code" minlength="7" maxlength="8" pattern="\d*" autocomplete="shipping postal-code">
+				  </label>
+				  <label>
+				    <span>都道府県</span>
+				    
+				     <input type="text" name="prefecture" autocomplete="shipping address-level1">
+				    
+				  
+				  </label>
+				  <label>
+				    <span>市区町村</span>
+				    <input type="text" name="city" autocomplete="shipping address-level2">
+				  </label>
+				  <label>
+				    <span>町名・番地</span>
+				    <input type="text" name="address1" autocomplete="shipping address-line1">
+				  </label>
+				  <label>
+				    <span>建物名等</span>
+				    <input type="text" name="address2" autocomplete="shipping address-line2">
+				  </label>
+  
+                <label for="Stel">電話番号:</label>
+               	<input type="text" id="Simg" name="Simg" required>
+               	
+               	<button class="Vhome" onclick="location.href='vhome'">戻る</button>
+                <button type="submit">登録</button>
+          
+        </form>
+        
+        
+      
+   	</div>
+</body>
+</html>

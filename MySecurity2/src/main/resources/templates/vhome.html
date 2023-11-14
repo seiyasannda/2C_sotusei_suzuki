@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,30 +9,9 @@
 </head>
 <body>
 	<div>
-        <h2>ようこそ<div th:text="${session.username}"></div>さん！</h2>
-		<h3>閲覧したいデータを入力して下さい。</h3>
-		
-		<form th:action="@{/uhome}" method="POST">
-			<label>プロジェクトIDを入力してください(1もしくは2)</label>
-			<input type="text" name="pjId">
-			<button type="submit">閲覧する</button>
-		</form>
-		
-		<hr>
-		
-		<h2>検索結果</h2>
-		<table class="table">
-		<tr>
-			<th>プロジェクト名</th>
-			<th>概要</th>
-			<th>予算</th>
-		</tr>
-		<tr th:each="result: ${resutList}">
-			<td th:text="${result.name}"></td>
-			<td th:text="${result.gaiyo}"></td>
-			<td th:text="${result.yosan}"></td>
-		</tr>
-	</table>
-    </div>
+        <button class="StoreReg" onclick="location.href='vstoreReg'">店舗登録</button>
+        <button class="DbReg" onclick="location.href='vdbReg'">DB登録</button>
+        <button class="ItemList" onclick="location.href='vitemList'">値引き商品一覧</button>
+   	</div>
 </body>
 </html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/style3.css}">
+    <script src="/js/Vitem.js"></script>
+    <title>ホーム画面</title>
+</head>
+<body>
+    <div id="column" class="column05">
+        <ul id="product-list"class="column03">
+            <!-- Iterate over the items and display them -->
+            <th:block th:each="item : ${items}">
+                <li>
+                    <a href="#">
+                        <img th:src="${'/img/' + item.imagePath}" />
+                        <p th:text="${item.productName}"></p>
+                        <span th:text="${item.price}"></span>
+                    </a>
+                </li>
+            </th:block>
+        </ul>
+    </div>
+<footer>
+	<button class="Vhome" onclick="location.href='vhome'">戻る</button>
+        <button class="StoreReg" onclick="location.href='vstoreReg'">店舗登録</button>
+        <button class="DbReg" onclick="location.href='vdbReg'">DB登録</button>
+       
+</footer>
+</html>
