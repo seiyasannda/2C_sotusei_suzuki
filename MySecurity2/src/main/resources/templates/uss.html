@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>店舗検索</title>
+    <link rel="stylesheet" th:href="@{/css/search.css}">
+</head>
+<body>
+    <header>
+        <h1>店舗検索</h1>
+    </header>
+
+    <form id="search-form">
+        <div>
+            <label for="storeName">店舗名:</label>
+            <input type="text" id="storeName" name="storeName">
+        </div>
+        <div>
+            <label for="businessHours">営業時間:</label>
+            <input type="text" id="businessHours" name="businessHours">
+        </div>
+        <div>
+            <label for="address">住所:</label>
+            <input type="text" id="address" name="address">
+        </div>
+        <div>
+            <label for="phoneNumber">電話番号:</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber">
+        </div>
+
+        <div>
+            <button type="button" onclick="search()">検索</button>
+            <button type="button" onclick="goBack()">前のページに戻る</button>
+        </div>
+    </form>
+
+    <script>
+        function search() {
+            // Add your search logic here
+            // You can use JavaScript to retrieve values from the form fields and perform the search
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

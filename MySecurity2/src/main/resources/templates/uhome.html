@@ -4,35 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/uhome.css}">
+    <script src="/js/Vitem.js"></script>
     <title>ホーム画面</title>
 </head>
 <body>
-	<div>
-        <h2>ようこそ<div th:text="${session.username}"></div>さん！</h2>
-		<h3>閲覧したいデータを入力して下さい。</h3>
-		
-		<form th:action="@{/uhome}" method="POST">
-			<label>プロジェクトIDを入力してください(1もしくは2)</label>
-			<input type="text" name="pjId">
-			<button type="submit">閲覧する</button>
-		</form>
-		
-		<hr>
-		
-		<h2>検索結果</h2>
-		<table class="table">
-		<tr>
-			<th>プロジェクト名</th>
-			<th>概要</th>
-			<th>予算</th>
-		</tr>
-		<tr th:each="result: ${resutList}">
-			<td th:text="${result.name}"></td>
-			<td th:text="${result.gaiyo}"></td>
-			<td th:text="${result.yosan}"></td>
-		</tr>
-	</table>
+	<div id="map-container">
+	 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3233.8634268495603!2d140.5843038759996!3d35.85235226166316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6022fbf03dda6bcf%3A0x95bca55a09cecfce!2z44OZ44Kk44K344Ki44OV44O844OJ44K744Oz44K_44O86aaZ5Y-W5bCP6KaL5bed5bqX!5e0!3m2!1sja!2sjp!4v1700012400334!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
-</body>
+    <div id="column" class="column05">
+        <ul id="product-list" class="column03">
+    <li th:each="item : ${items}">
+        <a href="#">
+            <img th:src="${'/img/' + item.imagePath}" />
+            <p th:text="${item.productName}"></p>
+            <span th:text="${item.price}"></span>
+        </a>
+    </li>
+</ul>
+    </div>
+<footer>
+	<button class="usi" onclick="location.href='usi'">値引き品検索</button>
+        <button class="uss" onclick="location.href='uss'">店舗検索</button>
+    
+       
+</footer>
 </html>
