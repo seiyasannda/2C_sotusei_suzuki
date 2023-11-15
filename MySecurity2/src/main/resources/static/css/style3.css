@@ -20,13 +20,16 @@ ul#product-list {
 ul#product-list li {
     background-color: #fff;
     border: 1px solid #ddd;
-    margin-bottom: 10px;
-    padding: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+    position: relative;
 }
 
-ul#product-list li a {
+.product-link {
     text-decoration: none;
     color: #333;
+    display: flex;
+    flex-direction: column;
 }
 
 ul#product-list li img {
@@ -35,6 +38,39 @@ ul#product-list li img {
     margin-bottom: 10px;
 }
 
+ul#product-list li p {
+    margin: 10px 0;
+}
+
+ul#product-list li span {
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
+
+/* 修正した部分 */
 footer {
     background-color: #333;
     color: #fff;
@@ -45,6 +81,7 @@ footer {
     width: 100%;
 }
 
+/* 修正した部分 */
 footer button {
     background-color: #4CAF50;
     border: none;
@@ -58,6 +95,7 @@ footer button {
     cursor: pointer;
 }
 
+/* 修正した部分 */
 footer button:hover {
     background-color: #45a049;
 }

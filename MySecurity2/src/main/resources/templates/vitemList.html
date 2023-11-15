@@ -10,23 +10,25 @@
 </head>
 <body>
     <div id="column" class="column05">
-        <ul id="product-list"class="column03">
+        <ul id="product-list" class="column03">
             <!-- Iterate over the items and display them -->
             <th:block th:each="item : ${items}">
                 <li>
-                    <a href="#">
+                    <!-- 商品の詳細ページへのリンク -->
+                   
                         <img th:src="${'/img/' + item.imagePath}" />
                         <p th:text="${item.productName}"></p>
                         <span th:text="${item.price}"></span>
-                    </a>
+                    
+                     <a th:href="@{'/viewItem/' + ${item.id}}"class="button">編集</a>
+                     <a th:href="@{'/viewItem/' + ${item.id}}"class="button">削除</a>
                 </li>
             </th:block>
         </ul>
     </div>
-<footer>
-	<button class="Vhome" onclick="location.href='vhome'">戻る</button>
-        <button class="StoreReg" onclick="location.href='vstoreReg'">値引き登録</button>
-    
-       
-</footer>
+    <footer>
+        <button class="Vhome" onclick="location.href='vhome'">戻る</button>
+        <button class="StoreReg" onclick="location.href='vstoreReg'">新規登録</button>
+    </footer>
+</body>
 </html>

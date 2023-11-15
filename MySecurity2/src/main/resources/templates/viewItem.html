@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/style3.css}">
+    <script src="/js/Vitem.js"></script>
+    <title>Item Details</title>
+</head>
+<body>
+    <div id="column" class="column05">
+        <div>
+            <!-- Display details of the item -->
+            <img th:src="${'/img/' + item.imagePath}" />
+            <p th:text="${item.productName}"></p>
+            <span th:text="${item.price}"></span>
+        </div>
+    </div>
+    <footer>
+        <button class="Vhome" onclick="location.href='vhome'">戻る</button>
+    </footer>
+</body>
+</html>
