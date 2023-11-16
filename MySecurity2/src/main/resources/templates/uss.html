@@ -5,14 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>店舗検索</title>
-    <link rel="stylesheet" th:href="@{/css/search.css}">
+    <link rel="stylesheet" th:href="@{/css/style4.css}">
 </head>
 <body>
+	<form id="search-form">
     <header>
         <h1>店舗検索</h1>
     </header>
 
-    <form id="search-form">
+    
         <div>
             <label for="storeName">店舗名:</label>
             <input type="text" id="storeName" name="storeName">
@@ -32,7 +33,7 @@
 
         <div>
             <button type="button" onclick="search()">検索</button>
-            <button type="button" onclick="goBack()">前のページに戻る</button>
+            <button type="button" onclick="goBack()">戻る</button>
         </div>
     </form>
 
