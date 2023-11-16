@@ -5,22 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>検索画面</title>
-    <link rel="stylesheet" th:href="@{/css/style4.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-	<div id="search-form">
-    <header>
-        <h1>商品検索</h1>
-    </header>
+    <div id="search-form">
+        <header>
+            <h1>商品検索</h1>
+        </header>
 
-    
         <form id="search-form-content">
             <div class="form-group">
                 <label for="genre">ジャンル:</label>
-<select id="genre" name="genre">
-    <option value="米・雑穀・シリアル">米・雑穀・シリアル</option>
-    <option value="麺類">麺類</option>
-    <option value="野菜">野菜</option>
+                <select id="genre" name="genre">
+                    <option value="米・雑穀・シリアル">米・雑穀・シリアル</option>
+                    <option value="麺類">麺類</option>
+                    <option value="野菜">野菜</option>
     <option value="水産物・水産加工品">水産物・水産加工品</option>
     <option value="肉・肉加工品">肉・肉加工品</option>
     <option value="タマゴ・チーズ・乳製品">タマゴ・チーズ・乳製品</option>
@@ -40,7 +39,7 @@
     <option value="スナック・駄菓子">スナック・駄菓子</option>
  	<option value="おつまみ・珍味">おつまみ・珍味</option>
  	<option value="ドライフルーツ">ドライフルーツ</option>
-</select>
+  </select>
             </div>
             <div class="form-group">
                 <label for="productName">商品名:</label>
@@ -64,8 +63,8 @@
 
     <script>
         function search() {
-            // Add your search logic here
-            // You can use JavaScript to retrieve values from the form fields and perform the search
+            // 検索ロジックを追加してください
+            // JavaScriptを使用してフォームの値を取得し、検索を実行することができます
         }
 
         function goBack() {
