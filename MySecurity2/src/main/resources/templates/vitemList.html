@@ -20,15 +20,15 @@
                         <p th:text="${item.productName}"></p>
                         <span th:text="${item.price}"></span>
                     
-                     <a th:href="@{'/viewItem/' + ${item.id}}"class="button">編集</a>
-                     <a th:href="@{'/viewItem/' + ${item.id}}"class="button">削除</a>
+                     <a th:href="@{'/viewItem/' + ${item.id}}"class="button">詳細</a>
+                     <a th:href="@{/vitemReg}"class="button">編集</a>
                 </li>
             </th:block>
         </ul>
     </div>
     <footer>
         <button class="Vhome" onclick="location.href='vhome'">戻る</button>
-        <button class="StoreReg" onclick="location.href='vstoreReg'">新規登録</button>
+        <button class="StoreReg" onclick="location.href='vitemReg'">新規登録</button>
     </footer>
 </body>
 </html>

@@ -4,21 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/css/style3.css}">
+    <link rel="stylesheet" th:href="@{/css/style4.css}">
     <script src="/js/Vitem.js"></script>
     <title>Item Details</title>
 </head>
 <body>
     <div id="column" class="column05">
-        <div>
-            <!-- Display details of the item -->
-            <img th:src="${'/img/' + item.imagePath}" />
-            <p th:text="${item.productName}"></p>
-            <span th:text="${item.price}"></span>
-        </div>
+      
+		<form th:action="@{/editItem}" method="post">
+        <label for="Iname">商品名:</label>
+        <input type="text" id="Iname" name="productName" th:value="${item.productName}" required>
+        
+        <label for="Iimg">商品イメージ:</label>
+        <input type="file" id="Iimg" name="imagePath" required>
+        
+        <label for="Ipri">値段:</label>
+        <input type="text" id="Ipri" name="price" th:value="${item.price}" required>
+        
+        <!-- Include a hidden input field for the item ID -->
+        <input type="hidden" id="itemId" name="itemId" th:value="${item.id}">
+        
+        <button class="Vhome" onclick="location.href='vhome'">戻る</button>
+        <button type="submit">更新</button>
+    </form>        
+  
     </div>
     <footer>
-        <button class="Vhome" onclick="location.href='vhome'">戻る</button>
+		<a th:href="@{/vitemReg}"class="button">編集</a>
+       <a th:href="@{/vhome}"class="button">戻る</a>
     </footer>
 </body>
 </html>

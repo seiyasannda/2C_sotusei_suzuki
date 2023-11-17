@@ -18,12 +18,13 @@ public class VitemEditController {
 
     @RequestMapping(path = "/viewItem/{itemId}", method = RequestMethod.GET)
     public String viewItem(@PathVariable Long itemId, Model model) {
-        // Fetch data for a single item from the database
+        // Fetch the details of the specific item
         Map<String, Object> item = jdbcTemplate.queryForMap("SELECT * FROM vitems WHERE id = ?", itemId);
 
-        // Pass the data to the HTML file
+        // Pass the item details to the HTML file
         model.addAttribute("item", item);
 
         return "viewItem";
     }
 }
+

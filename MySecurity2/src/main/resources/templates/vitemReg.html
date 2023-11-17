@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>ホーム画面</title>
+</head>
+<body>
+    <div class="login-container">
+        <div th:if="${message}" class="alert alert-success" role="alert" id="popup">
+            <p th:text="${message}"></p>
+        </div>
+        <form th:action="@{/vitemReg}" method="post" enctype="multipart/form-data" onsubmit="showPopup()">
+            <label for="Iname">商品名:</label>
+            <input type="text" id="Iname" name="productName" required>
+            
+            <label for="Iimg">商品イメージ:</label>
+            <input type="file" id="Iimg" name="imagePath" required>
+            
+            <label for="Ipri">値段:</label>
+            <input type="text" id="Ipri" name="price" required>
+            
+            <button class="Vhome" onclick="location.href='vhome'">戻る</button>
+            <button type="submit">登録</button>
+        </form>
+        
+        <script>
+            // ポップアップを表示するJavaScript
+            function showPopup() {
+                document.getElementById('popup').style.display = 'block';
+            }
+        </script>
+    </div>
+</body>
+</html>
