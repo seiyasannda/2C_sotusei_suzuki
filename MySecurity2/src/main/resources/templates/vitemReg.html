@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/css/style.css}">
-    <title>ホーム画面</title>
+    <link rel="stylesheet" th:href="@{/css/style4.css}">
+    <title>新規商品登録画面</title>
 </head>
 <body>
-    <div class="login-container">
+    <div id="column" class="column05">
         <div th:if="${message}" class="alert alert-success" role="alert" id="popup">
             <p th:text="${message}"></p>
         </div>
@@ -22,8 +22,8 @@
             <label for="Ipri">値段:</label>
             <input type="text" id="Ipri" name="price" required>
             
-            <button class="Vhome" onclick="location.href='vhome'">戻る</button>
-            <button type="submit">登録</button>
+            <button class="Vhome" onclick="location.href='vitemList'">戻る</button>
+            <button type="submit">新規登録</button>
         </form>
         
         <script>

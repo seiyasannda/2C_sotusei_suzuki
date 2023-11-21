@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/style3.css}">
     <script src="/js/Vitem.js"></script>
-    <title>ホーム画面</title>
+    <title>商品一覧画面</title>
 </head>
 <body>
     <div id="column" class="column05">
@@ -21,7 +21,7 @@
                         <span th:text="${item.price}"></span>
                     
                      <a th:href="@{'/viewItem/' + ${item.id}}"class="button">詳細</a>
-                     <a th:href="@{/vitemReg}"class="button">編集</a>
+                    
                 </li>
             </th:block>
         </ul>

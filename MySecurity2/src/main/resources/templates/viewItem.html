@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/style4.css}">
     <script src="/js/Vitem.js"></script>
-    <title>Item Details</title>
+    <title>商品詳細画面</title>
 </head>
 <body>
     <div id="column" class="column05">
@@ -24,14 +24,14 @@
         <!-- Include a hidden input field for the item ID -->
         <input type="hidden" id="itemId" name="itemId" th:value="${item.id}">
         
-        <button class="Vhome" onclick="location.href='vhome'">戻る</button>
+         <a th:href="@{/vitemList}"class="button">戻る</a>
         <button type="submit">更新</button>
     </form>        
   
     </div>
     <footer>
-		<a th:href="@{/vitemReg}"class="button">編集</a>
-       <a th:href="@{/vhome}"class="button">戻る</a>
+		
+     
     </footer>
 </body>
 </html>

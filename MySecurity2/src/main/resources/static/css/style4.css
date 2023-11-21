@@ -20,20 +20,23 @@ form {
 label {
     display: block;
     margin-bottom: 8px;
+    font-weight: bold; /* Added for better emphasis */
 }
 
 input {
     width: 100%;
-    padding: 8px;
+    padding: 10px; /* Increased padding for better input styling */
     margin-bottom: 16px;
     box-sizing: border-box;
+    border: 1px solid #ccc; /* Added a subtle border for better input visibility */
+    border-radius: 4px;
 }
 
 button {
     background-color: #3498db;
     color: #fff;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 24px; /* Increased padding for better button styling */
     border-radius: 4px;
     cursor: pointer;
 }
