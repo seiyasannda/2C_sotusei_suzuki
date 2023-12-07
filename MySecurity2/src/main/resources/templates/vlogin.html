@@ -12,12 +12,15 @@
     <div class="login-container">
         <h2>システムサインイン</h2>
         <form th:action="@{/vlogin}" method="post">
-            <label for="username"></label>
-            <input type="text" id="id" name="id" placeholder="ログインID" required>
+            <label for="loginid"></label>
+            <input type="text" id="id" name="loginid" placeholder="ログインID" required>
             <label for="password"></label>
             <input type="password" id="password" name="password" placeholder="パスワード" required>
             <button type="submit">ログイン</button>
         </form>
+        <p th:text="${mozierror}"></p>
+        <p th:text="${loginerror}"></p>
+        <p th:if="${error}" style="color: red" th:text="${error}"></p>
 
         <!-- サインアップフォーム -->
         <form action="/vsignup" method="get">

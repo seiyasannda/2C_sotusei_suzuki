@@ -14,15 +14,28 @@
     </div>
     <div id="column" class="column05">
         <ul id="product-list" class="column03">
-    <li th:each="item : ${items}">
-        <a href="#">
+			
+			 <li th:each="item : ${items}">
+				 <!-- 対応するstore情報を表示 -->
+				 <ul>
+                <li th:each="vstoretable : ${store}">
+                    <!-- storeをクリックするとusdへ遷移 -->
+                    <a th:href="@{/usd}">
+                        <p th:text="${vstoretable.Sname}"></p>
+                    </a>
+                </li>
+            </ul>
+            <!-- 商品の情報 -->
             <img th:src="${'/img/' + item.imagePath}" />
             <p th:text="${item.productName}"></p>
             <span th:text="${item.price}"></span>
-        </a>
-    </li>
-</ul>
-    </div>
+
+            
+            
+        </li>
+    </ul>
+</div>
+    
 <footer>
 	<button class="usi" onclick="location.href='usi'">値引き品検索</button>
         <button class="uss" onclick="location.href='uss'">店舗検索</button>

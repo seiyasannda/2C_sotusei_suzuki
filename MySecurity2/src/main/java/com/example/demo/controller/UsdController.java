@@ -22,10 +22,10 @@ public class UsdController {
 	public String viewPage(Model model) {
 
 		List<Map<String, Object>> items = jdbcTemplate.queryForList("SELECT * FROM vitems");
-
+		List<Map<String, Object>> store = jdbcTemplate.queryForList("SELECT * FROM vstoretable");
         // Pass the data to the HTML file
         model.addAttribute("items", items);
-
+        model.addAttribute("store", store);
 		
 		return "usd";
 	}

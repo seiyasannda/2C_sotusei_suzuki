@@ -18,9 +18,12 @@ public class UhomeController {
 	    public String viewPage(Model model) {
 	        // Fetch data from the database, assuming you have a table named 'items'
 	        List<Map<String, Object>> items = jdbcTemplate.queryForList("SELECT * FROM vitems");
+	        
+	        List<Map<String, Object>> store = jdbcTemplate.queryForList("SELECT Sname FROM vstoretable");
 
 	        // Pass the data to the HTML file
 	        model.addAttribute("items", items);
+	        model.addAttribute("store", store);
 
 	        return "uhome";
 	    }
