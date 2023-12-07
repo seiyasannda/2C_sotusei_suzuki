@@ -10,8 +10,10 @@
 </head>
 <body>
     <div id="column" class="column05">
-      
-		<form th:action="@{/editItem}" method="post">
+       <div th:if="${message}" class="alert alert-success" role="alert" id="popup">
+            <p th:text="${message}"></p>
+        </div>
+		<form th:action="@{/updateItem}" method="post">
         <label for="Iname">商品名:</label>
         <input type="text" id="Iname" name="productName" th:value="${item.productName}" required>
         
@@ -23,10 +25,11 @@
         
         <!-- Include a hidden input field for the item ID -->
         <input type="hidden" id="itemId" name="itemId" th:value="${item.id}">
-        
          <a th:href="@{/vitemList}"class="button">戻る</a>
         <button type="submit">更新</button>
-    </form>        
+        </form>
+         
+            
   
     </div>
     <footer>

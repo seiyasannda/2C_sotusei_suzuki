@@ -27,8 +27,8 @@ public class EditItemController {
         // ファイルアップロードや他の処理が必要な場合はここで実装する
 
         // データベースの商品情報を更新
-        String sql = "UPDATE vitems SET productName = ?, imagePath = ?, price = ? WHERE id = ?";
-        jdbcTemplate.update(sql, Iname, Iimg.getOriginalFilename(), Ipri, itemId);
+        String sql = "UPDATE vitems SET productName = ?,  price = ? WHERE id = ?";
+        jdbcTemplate.update(sql, Iname, Ipri, itemId);
 
         redirectAttributes.addFlashAttribute("message", "商品情報が更新されました。");
 

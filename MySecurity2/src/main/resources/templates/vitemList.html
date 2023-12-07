@@ -13,6 +13,7 @@
         <ul id="product-list" class="column03">
             <!-- Iterate over the items and display them -->
             <th:block th:each="item : ${items}">
+				<p th:text="${Message}"></p>
                 <li>
                     <!-- 商品の詳細ページへのリンク -->
                    
@@ -28,7 +29,7 @@
     </div>
     <footer>
         <button class="Vhome" onclick="location.href='vhome'">戻る</button>
-        <button class="StoreReg" onclick="location.href='vitemReg'">新規登録</button>
+        <button class="StoreReg" onclick="location.href='vitemReg'">新規値引き</button>
     </footer>
 </body>
 </html>

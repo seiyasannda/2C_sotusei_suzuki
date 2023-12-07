@@ -12,9 +12,15 @@
         <div th:if="${message}" class="alert alert-success" role="alert" id="popup">
             <p th:text="${message}"></p>
         </div>
-        <form th:action="@{/vitemReg}" method="post" enctype="multipart/form-data" onsubmit="showPopup()">
+        <form th:action="@{/barItem}" method="post" enctype="multipart/form-data" onsubmit="showPopup()">
+            
+            <label for="Ibar">バーコード:</label>
+            <input type="text" id="Ibar" name="ibar" required>
+            
             <label for="Iname">商品名:</label>
             <input type="text" id="Iname" name="productName" required>
+            
+          
             
             <label for="Iimg">商品イメージ:</label>
             <input type="file" id="Iimg" name="imagePath" required>
@@ -23,7 +29,7 @@
             <input type="text" id="Ipri" name="price" required>
             
             <button class="Vhome" onclick="location.href='vitemList'">戻る</button>
-            <button type="submit">新規登録</button>
+            <button type="submit">新規値引き</button>
         </form>
         
         <script>
