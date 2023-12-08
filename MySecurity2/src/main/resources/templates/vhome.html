@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,6 +12,8 @@
         <button class="StoreReg" onclick="location.href='vstoreReg'">店舗登録</button>
         <button class="DbReg" onclick="location.href='vdbReg'">DB登録</button>
         <button class="ItemList" onclick="location.href='vitemList'">値引き商品一覧</button>
+        <p th:text="${id}">aaaa</p>
+        
    	</div>
 </body>
 </html>

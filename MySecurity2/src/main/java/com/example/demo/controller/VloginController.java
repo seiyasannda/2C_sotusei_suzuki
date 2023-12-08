@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class VloginController {
@@ -26,14 +27,18 @@ public class VloginController {
 
 	//ログイン検証用
 	@RequestMapping(path = "/vlogin", method = RequestMethod.POST)
-    public String micPost(String loginid, String pw, Model model) {
-        if (loginid.length() > 16 || pw.length() > 16) {
+    public String micPost(String loginid, String password, Model model,RedirectAttributes redirectAttributes) {
+        if (loginid.length() > 16 || password.length() > 16) {
             model.addAttribute("mozierror","文字数が多すぎます");
         } else {
             List<Map<String, Object>> resultList = jdbcTemplate
-                    .queryForList("SELECT * FROM login WHERE loginid = ? AND password = ?", loginid, pw);
+                    .queryForList("SELECT * FROM miclogin WHERE loginid = ? AND password = ?", loginid, password);
             if (!resultList.isEmpty()) {
-                return "redirect:/vlogin";
+            	
+            	Map<String, Object> userMap = resultList.get(0);
+            	redirectAttributes.addFlashAttribute("id", userMap.get("id").toString());
+                return "redirect:/vhome";
+
             } else {
             	model.addAttribute("loginerror","ログインに失敗しました");
             }
@@ -41,4 +46,5 @@ public class VloginController {
 
         return "vlogin";
     }
+	
 }
