@@ -12,29 +12,46 @@
 	<div id="map-container">
 	 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3233.8634268495603!2d140.5843038759996!3d35.85235226166316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6022fbf03dda6bcf%3A0x95bca55a09cecfce!2z44OZ44Kk44K344Ki44OV44O844OJ44K744Oz44K_44O86aaZ5Y-W5bCP6KaL5bed5bqX!5e0!3m2!1sja!2sjp!4v1700012400334!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
-    <div id="column" class="column05">
+     <div id="column" class="column05">
         <ul id="product-list" class="column03">
-			
-			 <li th:each="item : ${items}">
-				 <!-- 対応するstore情報を表示 -->
-				 <ul>
-                <li th:each="vstoretable : ${store}">
-                    <!-- storeをクリックするとusdへ遷移 -->
-                    <a th:href="@{/usd}">
-                        <p th:text="${vstoretable.Sname}"></p>
+            <li th:each="item : ${items}">
+		        <div>
+				    <span>画像:</span>
+				    <img th:src="${'/img/' + item.imagePath}" />
+				</div>
+				<div>
+				    <span>商品名:</span>
+				    <span th:text="${item.productName}"></span>
+				</div>
+				<div>
+				    <span>値段:</span>
+				    <span th:text="${item.price}"></span>
+				</div>
+				<div>
+				    <span>ジャンル:</span>
+				    <span th:text="${item.genre}"></span>
+				</div>
+				<div>
+				    <span>賞味期限:</span>
+				    <span th:text="${#dates.format(item.expirationDate, 'yyyy-MM-dd')}"></span>
+				</div>
+                
+                <!-- 対応する店舗を表示 -->
+                <ul>
+                    <li th:each="store : ${stores}">
+                        <div th:if="${store.store_id == item.store_Id}">
+							<a th:href="@{/usd/store1}">
+                        <p th:text="${store.Sname}"></p>
                     </a>
-                </li>
-            </ul>
-            <!-- 商品の情報 -->
-            <img th:src="${'/img/' + item.imagePath}" />
-            <p th:text="${item.productName}"></p>
-            <span th:text="${item.price}"></span>
-
-            
-            
-        </li>
-    </ul>
-</div>
+                            
+                            
+                            <!-- 他の店舗情報を表示 -->
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
     
 <footer>
 	<button class="usi" onclick="location.href='usi'">値引き品検索</button>
@@ -42,4 +59,5 @@
     
        
 </footer>
+</body>
 </html>
