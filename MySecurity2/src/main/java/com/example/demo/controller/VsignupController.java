@@ -25,18 +25,18 @@ public class VsignupController {
        
 		
 		List<Map<String, Object>> resultList = jdbcTemplate
-                .queryForList("SELECT * FROM miclogin WHERE loginid = ? AND password = ?", loginid, password);
+                .queryForList("SELECT * FROM vlogin WHERE loginid = ? AND password = ?", loginid, password);
         if (!resultList.isEmpty()) {
         	
         	model.addAttribute("loginerror","既に登録されています");
         	
         } else {
-        	String sql = "INSERT INTO miclogin (loginid,password ) " +
+        	String sql = "INSERT INTO vlogin (loginid,password ) " +
                     "VALUES (?, ?)";
     		jdbcTemplate.update(sql, loginid, password);
     		model.addAttribute("message", "登録が完了しました。");
        
-    		return"vhome" ;
+    		return"vlogin" ;
         }	
 		
         return "vsignup";

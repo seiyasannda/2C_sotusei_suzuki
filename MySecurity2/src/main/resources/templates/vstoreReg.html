@@ -13,6 +13,7 @@
         <div th:if="${message}" class="alert alert-success" role="alert" id="popup">
             <p th:text="${message}"></p>
         </div>
+        <p th:text="${id}"></p>
         <form th:action="@{/vstoreReg}" method="post" enctype="multipart/form-data" onsubmit="showPopup()">
     
             <label for="Sname">店舗名:</label>
