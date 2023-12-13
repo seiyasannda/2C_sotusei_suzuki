@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @SessionAttributes("id")
@@ -29,17 +28,21 @@ public class VloginController {
 
 	//ログイン検証用
 	@RequestMapping(path = "/vlogin", method = RequestMethod.POST)
-    public String micPost(String loginid, String password, Model model,RedirectAttributes redirectAttributes) {
+    public String micPost(String loginid, String password, Model model) {
         if (loginid.length() > 16 || password.length() > 16) {
             model.addAttribute("mozierror","文字数が多すぎます");
         } else {
             List<Map<String, Object>> resultList = jdbcTemplate
-                    .queryForList("SELECT * FROM miclogin WHERE loginid = ? AND password = ?", loginid, password);
+                    .queryForList("SELECT * FROM vlogin WHERE loginid = ? AND password = ?", loginid, password);
             if (!resultList.isEmpty()) {
             	
-            	Map<String, Object> userMap = resultList.get(0);
-            	redirectAttributes.addFlashAttribute("id", userMap.get("id").toString());
-                return "redirect:/vhome";
+            	 String sql = "SELECT id FROM vlogin WHERE loginid = ? AND password = ?";
+                 List<Map<String, Object>> userMap = jdbcTemplate.queryForList(sql, loginid, password);
+
+                 // Mapから"id"の値を取得してmodelに追加
+                 model.addAttribute("id", userMap.get(0).get("id"));
+
+                 return "redirect:/vhome";
 
             } else {
             	model.addAttribute("loginerror","ログインに失敗しました");
