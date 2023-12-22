@@ -18,6 +18,7 @@ body {
 #column {
     margin: 20px auto;
     width: 80%;
+    padding-bottom: 60px;
 }
 
 ul#product-list {
@@ -42,7 +43,16 @@ ul#product-list li img {
     height: auto;
     margin-bottom: 10px;
 }
+ul#product-list li img {
+    max-width: 30%;
+    height: auto;
+    margin-bottom: 10px;
+    width: 30%; /* 画像を親要素の幅に合わせる */
+}
 
+ul#product-list li p {
+    margin: 10px 0;
+}
 footer {
     background-color: #333;
     color: #fff;
