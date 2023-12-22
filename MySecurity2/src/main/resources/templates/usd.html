@@ -52,7 +52,7 @@
         <li th:each="item : ${items}" th:if="${storeRow.store_id == item.store_Id}">
             <div>
                 <span>画像:</span>
-                <img th:src="${'/img/' + item.imagePath}" />
+         <img th:src="'data:image/png;base64,' + ${item.imagePath}">
             </div>
             <div>
                 <span>商品名:</span>

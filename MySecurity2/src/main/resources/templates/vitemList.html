@@ -14,7 +14,7 @@
     <div id="column" class="column05">
         <ul id="product-list" class="column03">
             <!-- Iterate over the items and display them -->
-            <th:block th:each="item : ${items}">
+            
 				
                 <li>
                     <p class="product-name" th:text="${item['productName']}"></p>
@@ -25,7 +25,7 @@
         			<p>値引価格・<span th:text="${item['nebiki']}"></span>円</p>
         			<a th:href="@{'/viewItem/' + ${item['id']}}" class="button">詳細</a>
                 </li>
-            </th:block>
+     
         </ul>
     </div>
     <footer>

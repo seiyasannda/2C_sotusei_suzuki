@@ -10,7 +10,7 @@
 <body>
 	<div>
 		
-		<form th:action="@{/VstoreReg}" method="post">
+		<form th:action="@{/ussearch}" method="post">
 		
                 <label for="Sname">店舗名:</label>
                 <input type="text" id="Sname" name="Sname" required>
@@ -51,8 +51,9 @@
                 <label for="Stel">電話番号:</label>
                	<input type="text" id="Simg" name="Simg" required>
                	
-               	<button type="button" onclick="search()">検索</button>
+               	                <button type="submit">検索</button>
                 <button type="button" onclick="goBack()">戻る</button>
+               
                 <script>
     function goBack() {
         window.history.back();

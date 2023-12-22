@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/style3.css}">
+
+    <title>商品一覧画面</title>
+</head>
+
+<body>
+    <div id="column" class="column05">
+        <ul id="product-list" class="column03">
+            <!-- Iterate over the items and display them -->
+          <ul id="product-list">
+    <li th:each="storeRow : ${store}">
+        <p class="product-name" th:text="${storeRow.Sname}"></p>
+        <img th:src="${storeRow.Simg}" alt="Store Image" width="100" height="100">
+        <p class="example1" th:text="${storeRow.example1}"></p>
+        <p class="example2" th:text="${storeRow.example2}"></p>
+        <p class="Stel" th:text="${storeRow.Stel}"></p>
+        <p class="postal-code" th:text="${storeRow.postal_code}"></p>
+        <p class="prefecture" th:text="${storeRow.prefecture}"></p>
+        <p class="city" th:text="${storeRow.city}"></p>
+        <p class="address1" th:text="${storeRow.address1}"></p>
+        <p class="address2" th:text="${storeRow.address2}"></p>
+    </li>
+</ul>
+            </th:block>
+        </ul>
+    </div>
+    <footer>
+        <button class="Vhome" onclick="location.href='vhome'">戻る</button>
+        <button class="StoreReg" onclick="location.href='vitemReg'">新規値引き</button>
+    </footer>
+</body>
+
+</html>
