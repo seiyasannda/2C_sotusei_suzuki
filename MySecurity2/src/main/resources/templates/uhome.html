@@ -17,16 +17,8 @@
         <ul id="product-list" class="column03">
 			
 			 <li th:each="item : ${items}">
-				 <!-- 対応するstore情報を表示 -->
-				 <ul>
-                <li th:each="vstoretable : ${store}">
-                    <!-- storeをクリックするとusdへ遷移 -->
-                    <a th:href="@{/usd}">
-                        <p th:text="${vstoretable.Sname}"></p>
-                    </a>
-                </li>
-            </ul>
-            <!-- 商品の情報 -->
+		        <div>
+				    <span>画像:</span>
             <img th:src="'data:image/png;base64,' + ${item.imagePath}">
             
             <p th:text="${item.productName}"></p>
