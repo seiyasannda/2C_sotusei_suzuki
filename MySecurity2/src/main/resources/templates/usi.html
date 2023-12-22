@@ -13,7 +13,7 @@
             <h1>商品検索</h1>
         </header>
 
-        <form th:action="@{/uhome}" method="POST">
+        <form th:action="@{/usi}" method="POST">
 			
 			<div class="form-group">
                 <label for="productName">商品名:</label>
@@ -21,13 +21,14 @@
             </div>
             
             <div class="form-group">
-                <label for="discountPrice">値引き価格:</label>
-                <input type="number" id="discountPrice" name="discountPrice">
-            </div>
+    <label for="discountPrice">値引き価格:</label>
+    <input type="number" id="discountPrice" name="discountPriceStr"> <!-- name属性をdiscountPriceStrに変更 -->
+</div>
             
             <div class="form-group">
                 <label for="genre">ジャンル:</label>
                 <select id="genre" name="genre">
+					<option value=""></option>
                     <option value="米・雑穀・シリアル">米・雑穀・シリアル</option>
                     <option value="麺類">麺類</option>
                     <option value="野菜">野菜</option>
@@ -59,24 +60,15 @@
             </div>
             
 
-            <div>
-                <button type="button" onclick="search()">検索</button>
-                <button type="button" onclick="goBack()">戻る</button>
-            </div>
-        </form>
+            
+        
     </div>
-    
-    
+    <footer>
+        <button class="uhome" onclick="location.href='uhome'">戻る</button>
+        <button type="submit">検索</button>
+    </footer>
+    </form>
 
-    <script>
-        // function search() {
-            // 検索ロジックを追加してください
-            // JavaScriptを使用してフォームの値を取得し、検索を実行することができます
-       // } 
 
-        function goBack() {
-            window.history.back();
-        }
-    </script>
 </body>
 </html>

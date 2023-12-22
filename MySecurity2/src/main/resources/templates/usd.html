@@ -15,6 +15,8 @@
     <thead>
         <tr>
             <th>店舗名</th>
+            <th>開店時間</th>
+            <th>閉店時間</th>
             <th>電話番号</th>
             <th>郵便番号</th>
             <th>県</th>
@@ -28,6 +30,8 @@
         <!-- Loop through each store in the model attribute "store" -->
         <tr th:each="storeRow : ${store}">
             <td th:text="${storeRow.Sname}"></td>
+            <td th:text="${storeRow.example1}"></td>
+            <td th:text="${storeRow.example2}"></td>
             <td th:text="${storeRow.Stel}"></td>
             <td th:text="${storeRow.postal_code}"></td>
             <td th:text="${storeRow.prefecture}"></td>
@@ -41,23 +45,38 @@
         </tr>
     </tbody>
 </table>
-	
+	<tbody>
+		 <tr th:each="storeRow : ${store}">
     <div id="column" class="column05">
-        <ul id="product-list"class="column03">
-            <!-- Iterate over the items and display them -->
-            <th:block th:each="item : ${items}">
-                <li>
-                    <a href="#">
-                        <img th:src="${'/img/' + item.imagePath}" />
-                        <p th:text="${item.productName}"></p>
-                        <span th:text="${item.price}"></span>
-                    </a>
-                </li>
-            </th:block>
-        </ul>
-    </div>
+    <ul id="product-list" class="column03">
+        <li th:each="item : ${items}" th:if="${storeRow.store_id == item.store_Id}">
+            <div>
+                <span>画像:</span>
+                <img th:src="${'/img/' + item.imagePath}" />
+            </div>
+            <div>
+                <span>商品名:</span>
+                <span th:text="${item.productName}"></span>
+            </div>
+            <div>
+                <span>値段:</span>
+                <span th:text="${item.price}"></span>
+            </div>
+            <div>
+                <span>ジャンル:</span>
+                <span th:text="${item.genre}"></span>
+            </div>
+            <div>
+                <span>賞味期限:</span>
+                <span th:text="${#dates.format(item.expirationDate, 'yyyy-MM-dd')}"></span>
+            </div>
+        </li>
+    </ul>
+</div>
+</tr>
+</tbody>
 <footer>
-	<button class="uhome" onclick="location.href='uhome'">戻る</button>
+	<button type="button" onclick="history.back()">戻る</button>
         
     
        
