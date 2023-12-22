@@ -35,9 +35,9 @@ public class UsiController {
 	        try {
 	            double discountPrice = Double.parseDouble(discountPriceStr);
 	            if (query.contains("WHERE")) {
-	                query += " AND price < ?"; // 値段が検索した値未満のものを取得する条件
+	                query += " AND nebiki <= ?"; // 値段が検索した値未満のものを取得する条件
 	            } else {
-	                query += " WHERE price < ?";
+	                query += " WHERE nebiki <= ?";
 	            }
 	            params.add(discountPrice);
 	        } catch (NumberFormatException e) {
@@ -54,9 +54,9 @@ public class UsiController {
 	    }
 	    if (expirationDate != null && !expirationDate.isEmpty()) {
 	        if (query.contains("WHERE")) {
-	            query += " AND expirationDate < ?"; // expirationDateが入力した日より前のものを取得する条件
+	            query += " AND expirationDate <= ?"; // expirationDateが入力した日より前のものを取得する条件
 	        } else {
-	            query += " WHERE expirationDate < ?";
+	            query += " WHERE expirationDate <= ?";
 	        }
 	        params.add(expirationDate);
 	    }

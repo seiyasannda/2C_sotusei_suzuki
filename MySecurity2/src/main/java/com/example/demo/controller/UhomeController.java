@@ -19,7 +19,7 @@ public class UhomeController {
 	        // Fetch data from the database, assuming you have a table named 'items'
 	        List<Map<String, Object>> items = jdbcTemplate.queryForList("SELECT * FROM vitems");
 	        
-	        List<Map<String, Object>> store = jdbcTemplate.queryForList("SELECT Sname FROM vstoretable");
+	        List<Map<String, Object>> store = jdbcTemplate.queryForList("SELECT * FROM vstoretable");
 
 	        // Pass the data to the HTML file
 	        model.addAttribute("items", items);
