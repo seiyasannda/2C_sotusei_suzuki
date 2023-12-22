@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="column" class="column05">
-      
+     
     
         <form th:action="@{/vitemReg}" method="post" enctype="multipart/form-data" onsubmit="showPopup()">
             
@@ -17,15 +17,18 @@
             <input type="text" id="Ibar" name="barcode" required>
             
            
+           	<button class="Vhome" onclick="location.href='vitemList'">戻る</button>
+            <button type="submit" onclick="showDetailButton()">検索</button>
             
-            <button class="Vhome" onclick="location.href='vitemList'">戻る</button>
-            <button type="submit" onclick="showDetailButton()">新規値引き</button>
             <div th:if="${message}" class="alert alert-success" role="alert" id="popup">
-		
-           <a th:href="@{'/viewItem/' + ${message[0].id}}" class="button" id="detailButton" >詳細</a>
-        </div>
+            	<p th:text="${message}"></p>
+            	<button class="Vhome" onclick="location.href='vdbReg'">商品登録</button>  
+        	</div>
+          
+           
           
         </form>
+        
         
         <script>
        

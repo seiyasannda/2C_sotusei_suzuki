@@ -6,7 +6,6 @@ package com.example.demo.controller;
 
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -37,33 +36,32 @@ public class VitemRegController {
 
     @PostMapping("/vitemReg")
     public String registerVitem(
-    		 @RequestParam("barcode") String barcode,
-           
-    		 @ModelAttribute("id")String login_id,
-            Model model,
-            RedirectAttributes redirectAttributes) {
+    		 					@RequestParam("barcode") String barcode,
+    		 					@ModelAttribute("id")String login_id,
+    		 					 Model model,
+    		 					 RedirectAttributes redirectAttributes) {
 
         // ファイルアップロードや他の処理が必要な場合はここで実装する
 
-        // データベースへの挿入処理
-    	  Map<String, Object> item = jdbcTemplate.queryForMap("SELECT * FROM vitems WHERE barcode = ?", barcode);
+        // データベースへの検索処理
+    	String sql = "SELECT id FROM vitems WHERE barcode = ? and store_id =?";
+    	// queryForListを使用して結果のリストを取得
+    	List<Integer> itemIds = jdbcTemplate.queryForList(sql, Integer.class, barcode,login_id);
 
-    
-         
-          
-    	  if (!item.isEmpty()) {
-    	        String sql = "SELECT id FROM vitems WHERE barcode = ?";
-    	        List<Map<String, Object>> items = jdbcTemplate.queryForList(sql, barcode);
+    	if (!itemIds.isEmpty()) {
+    	    Integer itemId = itemIds.get(0);
 
-    	        // Mapから"id"の値を取得してmodelに追加
-    	        model.addAttribute("message", items);
+    	    // modelに追加
+    	    model.addAttribute("message", itemId);
 
-    	        return "vitemReg";
-    	    } else {
-    	        model.addAttribute("loginerror", "ログインに失敗しました");
-    	    }
+    	    return "redirect:viewItem/" + itemId;
+    	} else {
+    		redirectAttributes.addFlashAttribute("message", "商品登録されていません");
+    	
 
-    	    // 登録が完了したらリダイレクトまたは適切な画面に遷移する
-    	    return "vitemReg";
+    	// 登録が完了したらリダイレクトまたは適切な画面に遷移する
+    	return "redirect:vitemReg";
+
     	}
-}
+    }
+    }

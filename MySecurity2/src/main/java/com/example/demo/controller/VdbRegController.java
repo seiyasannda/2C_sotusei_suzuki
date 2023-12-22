@@ -5,7 +5,10 @@ package com.example.demo.controller;
 
 
 
+import java.io.IOException;
 import java.sql.Date;
+import java.util.Base64;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -45,16 +48,36 @@ public class VdbRegController {
             @RequestParam("price") String Ipri,
             @ModelAttribute("id")String login_id,
             Model model,
-            RedirectAttributes redirectAttributes) {
+            RedirectAttributes redirectAttributes) throws IOException{
 
         // ファイルアップロードや他の処理が必要な場合はここで実装する
 
-        // データベースへの挿入処理
-    	String sql = "INSERT INTO vitems (barcode, productName, imagePath, genre, expirationDate, price, store_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
-        jdbcTemplate.update(sql, barcode, Iname, Iimg.getOriginalFilename(), genre, expirationDate, Ipri, login_id);
+    	String sql = "SELECT id FROM vitems WHERE barcode = ? and store_id =?";
+    	// queryForListを使用して結果のリストを取得
+    	List<Integer> itemIds = jdbcTemplate.queryForList(sql, Integer.class, barcode,login_id);
+    	
+    	
+    	if (!itemIds.isEmpty()) {
+    	
+
+    	    // modelに追加
+    		redirectAttributes.addFlashAttribute("message", "既に登録されています");
+
+    	    return "redirect:/vdbReg";
+    	
+    	} else {// データベースへの挿入処理
+    	
+    		
+    		byte[] byteData = Iimg.getBytes();
+       		String encodedImage = Base64.getEncoder().encodeToString(byteData); 
+    		
+    		
+    		String sql1 = "INSERT INTO vitems (barcode, productName, imagePath, genre, expirationDate, price, store_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        jdbcTemplate.update(sql1, barcode, Iname, encodedImage, genre, expirationDate, Ipri, login_id);
 
         redirectAttributes.addFlashAttribute("message", "登録が完了しました。");
         // 登録が完了したらリダイレクトまたは適切な画面に遷移する
         return "redirect:/vdbReg";
     }
-}
+    }
+   }

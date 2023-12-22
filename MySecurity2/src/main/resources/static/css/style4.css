@@ -1,3 +1,5 @@
+/* style4.css */
+
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -20,15 +22,15 @@ form {
 label {
     display: block;
     margin-bottom: 8px;
-    font-weight: bold; /* Added for better emphasis */
+    font-weight: bold;
 }
 
 input {
-    width: 100%;
-    padding: 10px; /* Increased padding for better input styling */
+    width: calc(100% - 20px);
+    padding: 10px;
     margin-bottom: 16px;
     box-sizing: border-box;
-    border: 1px solid #ccc; /* Added a subtle border for better input visibility */
+    border: 1px solid #ccc;
     border-radius: 4px;
 }
 
@@ -36,7 +38,7 @@ button {
     background-color: #3498db;
     color: #fff;
     border: none;
-    padding: 12px 24px; /* Increased padding for better button styling */
+    padding: 12px 24px;
     border-radius: 4px;
     cursor: pointer;
 }

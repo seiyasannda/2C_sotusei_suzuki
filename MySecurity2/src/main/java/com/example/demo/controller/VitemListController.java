@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.Base64;
 import java.util.List;
 import java.util.Map;
 
@@ -24,6 +25,11 @@ public class VitemListController {
 	        // Fetch data from the database, assuming you have a table named 'items'
 	        List<Map<String, Object>> items = jdbcTemplate.queryForList("SELECT * FROM vitems WHERE store_id = ?",id);
 
+//	        byte[] imageData = jdbcTemplate.queryForObject("SELECT imagePath FROM vitems WHERE id = ?", byte[].class, id);
+//	        String encodedImage = Base64.getEncoder().encodeToString(imageData);
+//
+//	     // モデルにエンコードされた画像データを追加
+//	        model.addAttribute("encodedImage", encodedImage);
 	        // Pass the data to the HTML file
 	        model.addAttribute("items", items);
 

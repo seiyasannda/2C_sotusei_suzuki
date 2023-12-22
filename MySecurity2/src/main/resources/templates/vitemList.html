@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,21 +9,21 @@
     <script src="/js/Vitem.js"></script>
     <title>商品一覧画面</title>
 </head>
+
 <body>
     <div id="column" class="column05">
         <ul id="product-list" class="column03">
             <!-- Iterate over the items and display them -->
             <th:block th:each="item : ${items}">
-				<p th:text="${Message}"></p>
+				
                 <li>
-                    <!-- 商品の詳細ページへのリンク -->
-                   
-                        <img th:src="${'/img/' + item.imagePath}" />
-                        <p th:text="${item.productName}"></p>
-                        <span th:text="${item.price}"></span>
-                    
-                     <a th:href="@{'/viewItem/' + ${item.id}}"class="button">詳細</a>
-                    
+                    <p class="product-name" th:text="${item['productName']}"></p>
+        			<img th:src="'data:image/png;base64,' + ${item.imagePath}" alt="商品画像">
+        			<p class="genre" th:text="${item['genre']}"></p>
+        			<p>賞味期限・<span th:text="${item['expirationDate']}"></span></p>
+        			<p>希望小売価格・<span th:text="${item['price']}"></span>円</p>
+        			<p>値引価格・<span th:text="${item['nebiki']}"></span>円</p>
+        			<a th:href="@{'/viewItem/' + ${item['id']}}" class="button">詳細</a>
                 </li>
             </th:block>
         </ul>
@@ -32,4 +33,5 @@
         <button class="StoreReg" onclick="location.href='vitemReg'">新規値引き</button>
     </footer>
 </body>
+
 </html>

@@ -1,60 +1,69 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/style2.css}">
     <title>店舗登録画面</title>
-     
 </head>
+
 <body>
-	 <div class="login-container">
+    <div class="login-container">
         <div th:if="${message}" class="alert alert-success" role="alert" id="popup">
             <p th:text="${message}"></p>
         </div>
+        
+        <div id="map-container">
+	 <iframe src="https://www.geocoding.jp/api/?q=<千葉県千葉市稲毛区天台1-7-16>" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
         <p th:text="${id}"></p>
         <form th:action="@{/vstoreReg}" method="post" enctype="multipart/form-data" onsubmit="showPopup()">
-    
+			<h2>店舗情報登録画面</h2>
             <label for="Sname">店舗名:</label>
             <input type="text" id="Sname" name="Sname" required>
-            
+
             <label for="Simg">店舗外観:</label>
             <input type="file" id="Simg" name="Simg" required>
-            
+
             <label for="example1">営業時間:</label>
-            <input type="time" name="example1" value="00:00">
-            ～<input type="time" name="example2" value="00:00">
-            
+            <input type="time" name="example1" value="00:00"> ～
+            <input type="time" name="example2" value="00:00">
+
             <label for="Sadd">住所:</label>
-            <label>
-                <span>郵便番号</span>
-                <input type="text" name="postal_code" minlength="7" maxlength="8" pattern="\d*" autocomplete="shipping postal-code">
-            </label>
-            <label>
-                <span>都道府県</span>
-                <input type="text" name="prefecture" autocomplete="shipping address-level1">
-            </label>
-            <label>
-                <span>市区町村</span>
-                <input type="text" name="city" autocomplete="shipping address-level2">
-            </label>
-            <label>
-                <span>町名・番地</span>
-                <input type="text" name="address1" autocomplete="shipping address-line1">
-            </label>
-            <label>
-                <span>建物名等</span>
-                <input type="text" name="address2" autocomplete="shipping address-line2">
-            </label>
-  
+            <div class="address-form">
+                <label>
+                    <span>郵便番号</span>
+                    <input type="text" name="postal_code" minlength="7" maxlength="8" pattern="\d*" autocomplete="shipping postal-code">
+                </label>
+                <label>
+                    <span>都道府県</span>
+                    <input type="text" name="prefecture" autocomplete="shipping address-level1">
+                </label>
+                <label>
+                    <span>市区町村</span>
+                    <input type="text" name="city" autocomplete="shipping address-level2">
+                </label>
+                <label>
+                    <span>町名・番地</span>
+                    <input type="text" name="address1" autocomplete="shipping address-line1">
+                </label>
+                <label>
+                    <span>建物名等</span>
+                    <input type="text" name="address2" autocomplete="shipping address-line2">
+                </label>
+            </div>
+
             <label for="Stel">電話番号:</label>
             <input type="text" name="Stel" required>
-            
-            <button class="Vhome" onclick="location.href='vhome'">戻る</button>
-            <button type="submit">登録</button>
+
+            <div class="button-container">
+                <button class="Vhome" onclick="location.href='vhome'">戻る</button>
+                <button type="submit">登録</button>
+            </div>
         </form>
-        
+
         <script>
             // ポップアップを表示するJavaScript
             function showPopup() {
@@ -62,6 +71,7 @@
             }
         </script>
     </div>
-     
+
 </body>
+
 </html>

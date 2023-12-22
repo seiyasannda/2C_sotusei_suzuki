@@ -1,5 +1,10 @@
 package com.example.demo.controller;
 
+import java.io.IOException;
+import java.util.Base64;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
@@ -40,16 +45,46 @@ public class VstoreRegController {
                                  @RequestParam("address2") String address2,
                                  @RequestParam("Stel") String Stel,
                                  Model model,
-                                 RedirectAttributes redirectAttributes) {
+                                 RedirectAttributes redirectAttributes)throws IOException {
 
-        // ファイルアップロードや他の処理が必要な場合はここで実装する
+       // ファイルアップロードや他の処理が必要な場合はここで実装する
+    	List<Map<String, Object>> store = jdbcTemplate.queryForList("SELECT * FROM vstoretable WHERE store_id = ?", login_id);
+    	
+    	    
+         
+         ///
+   	  if (!store.isEmpty()) {
+   		  
+   		
+   		  
+   		  
+   		  
+   		byte[] byteData = Simg.getBytes();
+   		String encodedImage = Base64.getEncoder().encodeToString(byteData); 
+   		 
+             // queryForObjectを使用して単一の値（id）を取得
+   		String sql = "UPDATE vstoretable SET Sname = ?, Simg = ?, example1 = ?, example2 = ?, postal_code = ?, prefecture = ?, city = ?, address1 = ?, address2 = ?, Stel = ? WHERE store_id = ?";
+   		jdbcTemplate.update(sql, Sname,encodedImage , example1, example2, postalCode, prefecture, city, address1, address2, Stel, login_id);
 
+             // modelに追加
+             redirectAttributes.addFlashAttribute("message", "更新が完了しました。");
+     		return "redirect:/vstoreReg";
+   	   
+   	  } else {
+   		  
+   	     String sql = "INSERT INTO vstoretable (Sname, Simg, example1, example2, postal_code, prefecture, city, address1, address2, Stel,store_id) " +
+                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
+   	     	jdbcTemplate.update(sql, Sname, Simg.getOriginalFilename(), example1, example2, postalCode, prefecture, city, address1, address2, Stel,login_id);
+    		redirectAttributes.addFlashAttribute("message", "登録が完了しました。");
+    		return "redirect:/vstoreReg";
+   	    }
+   	    
+
+   	    // 登録が完了したらリダイレクトまたは適切な画面に遷移する
+   	 
+   	}
         // データベースへの挿入処理
-        String sql = "INSERT INTO vstoretable (Sname, Simg, example1, example2, postal_code, prefecture, city, address1, address2, Stel,store_id) " +
-                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
-        jdbcTemplate.update(sql, Sname, Simg.getOriginalFilename(), example1, example2, postalCode, prefecture, city, address1, address2, Stel,login_id);
-        redirectAttributes.addFlashAttribute("message", "登録が完了しました。");
+    
         // 登録が完了したらリダイレクトまたは適切な画面に遷移する
-        return "redirect:/vstoreReg";
-    }
+       
 }

@@ -1,4 +1,6 @@
-@charset "UTF-8";body {
+/* style2.css */
+
+body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,12 +9,20 @@
     background-color: #f4f4f4;
 }
 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 .login-container {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
     text-align: center;
+    width: 400px; /* 任意の幅に調整 */
 }
 
 h2 {
@@ -22,6 +32,7 @@ h2 {
 
 .form-group {
     margin-bottom: 15px;
+    text-align: left;
 }
 
 label {
@@ -29,16 +40,25 @@ label {
     font-weight: bold;
     margin-bottom: 5px;
     color: #555;
+    text-align: left;
 }
 
-input[type="text"], input[type="password"] {
-    width: 100%;
-  
+input[type="text"],
+input[type="file"],
+input[type="date"] {
+    width: calc(100% - 16px); /* 任意の幅に調整 */
     padding: 8px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 button {
@@ -51,8 +71,15 @@ button {
     border-radius: 5px;
     transition: background-color 0.3s;
     text-align: center;
+    width: 48%; /* 任意の幅に調整 */
 }
 
-button:hover {
+.button:hover {
     background-color: #45a049;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
 }
