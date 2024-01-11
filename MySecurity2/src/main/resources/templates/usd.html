@@ -43,40 +43,52 @@
 </table>
 	
     <div id="column" class="column05">
-        <ul id="product-list"class="column03">
-            <!-- Iterate over the items and display them -->
-            <th:block th:each="item : ${items}">
+    <ul id="product-list" class="column03">
+        <!-- 商品を1つずつ表示 -->
+        <th:block th:each="storeRow : ${store}">
+        <th:block th:each="item : ${items}">
+            <!-- 特定の条件に基づいてHTMLを表示 -->
+            <th:block th:if="${storeRow['store_id'] == item['store_Id']}">
                 <li>
+                    <!-- 商品の詳細を表示 -->
                     <a href="#">
-                       <div>
-    				<span>商品名:</span>
-    				<span th:text="${item.productName}" style="color: red;"></span>
-				</div>
-		        <div>
-				    <span>画像:</span>
-				    <img th:src="'data:image/png;base64,' + ${item.imagePath}">
-				</div>
-				
-				<div>
-				    <span>値段:</span>
-				    <span th:text="${item.price}"></span>
-				</div>
-				<div>
-				    <span>値引き値段:</span>
-				    <span th:text="${item.nebiki}"></span>
-				</div>
-				<div>
-				    <span>ジャンル:</span>
-				    <span th:text="${item.genre}"></span>
-				</div>
-				<div>
-				    <span>賞味期限:</span>
-				    <span th:text="${#dates.format(item.expirationDate, 'yyyy-MM-dd')}"></span>
-				</div>
+                        <!-- 商品名 -->
+                        <div>
+                            <span>商品名:</span>
+                            <span th:text="${item.productName}" style="color: red;"></span>
+                        </div>
+                        <!-- 画像 -->
+                        <div>
+                            <span>画像:</span>
+                            <img th:src="'data:image/png;base64,' + ${item.imagePath}">
+                        </div>
+                        <!-- 値段 -->
+                        <div>
+                            <span>値段:</span>
+                            <span th:text="${item.price}"></span>
+                        </div>
+                        <!-- 値引き値段 -->
+                        <div>
+                            <span>値引き値段:</span>
+                            <span th:text="${item.nebiki}"></span>
+                        </div>
+                        <!-- ジャンル -->
+                        <div>
+                            <span>ジャンル:</span>
+                            <span th:text="${item.genre}"></span>
+                        </div>
+                        <!-- 賞味期限 -->
+                        <div>
+                            <span>賞味期限:</span>
+                            <span th:text="${#dates.format(item.expirationDate, 'yyyy-MM-dd')}"></span>
+                        </div>
+                    </a>
                 </li>
             </th:block>
-        </ul>
-    </div>
+        </th:block>
+       </th:block>
+    </ul>
+</div>
 <footer>
 	<button class="uhome" onclick="location.href='uhome'">戻る</button>
         

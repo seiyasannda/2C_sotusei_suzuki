@@ -29,7 +29,7 @@ public class UsdController {
         // Pass the data to the HTML file
         model.addAttribute("items", items);
         model.addAttribute("store", store);
-		
+        
 		return "usd";
 	}
 }

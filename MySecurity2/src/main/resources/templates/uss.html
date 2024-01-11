@@ -6,64 +6,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/style.css}">
     <title>店舗検索画面</title>
+    
+    <script>
+        // nullが選択されるオプションを追加する関数
+        function addNullOption(inputId) {
+            var inputElement = document.getElementById(inputId);
+
+            // 新しいオプションを作成
+            var nullOption = document.createElement("option");
+            nullOption.value = "null";
+            nullOption.text = "選択しない";
+
+            // セレクトボックスに追加
+            inputElement.insertBefore(nullOption, inputElement.firstChild);
+        }
+
+        // ドキュメントが読み込まれたときに呼び出す
+        document.addEventListener("DOMContentLoaded", function () {
+            // 選択可能な時間フィールドにnullのオプションを追加
+            addNullOption("example1");
+            addNullOption("example2");
+        });
+    </script>
 </head>
 <body>
-	<div>
+	<div id="search-form">
+		<header>
+            <h1>店舗検索</h1>
+        </header>
 		
-		<form th:action="@{/VstoreReg}" method="post">
+		<form th:action="@{/uss}" method="post">
 		
                 <label for="Sname">店舗名:</label>
-                <input type="text" id="Sname" name="Sname" required>
+                <input type="text" id="Sname" name="Sname">
               
-               
+               <label for="Shour">営業時間:選択しない場合は0を消してください</label>
+<input type="time" name="example1" id="example1" value="00:00">
+～
+<input type="time" name="example2" id="example2" value="00:00">
+
+
+<label for="Sadd">住所:</label>
+<label>
+    <span>郵便番号</span>
+    <input type="text" name="postal_code" minlength="7" maxlength="8" pattern="\d*" autocomplete="shipping postal-code">
+</label>
+<label>
+    <span>都道府県</span>
+    <input type="text" name="prefecture" autocomplete="shipping address-level1">
+</label>
+<label>
+    <span>市区町村</span>
+    <input type="text" name="city" autocomplete="shipping address-level2">
+</label>
+<label>
+    <span>町名・番地</span>
+    <input type="text" name="address1" autocomplete="shipping address-line1">
+</label>
+<label>
+    <span>建物名等</span>
+    <input type="text" name="address2" autocomplete="shipping address-line2">
+</label>
+
+<label for="Stel">電話番号:</label>
+<input type="text" id="Stel" name="Stel">
                 
-                 <label for="Shour">営業時間:</label>
-                 <input type="time" name="example1"value="00:00">
-                 ～<input type="time" name="example2"value="00:00">
-                
-                
-                <label for="Sadd">住所:</label>
-               
-                <label>
-				    <span>郵便番号</span>
-				    <input type="text" name="postal_code" minlength="7" maxlength="8" pattern="\d*" autocomplete="shipping postal-code">
-				  </label>
-				  <label>
-				    <span>都道府県</span>
-				    
-				     <input type="text" name="prefecture" autocomplete="shipping address-level1">
-				    
-				  
-				  </label>
-				  <label>
-				    <span>市区町村</span>
-				    <input type="text" name="city" autocomplete="shipping address-level2">
-				  </label>
-				  <label>
-				    <span>町名・番地</span>
-				    <input type="text" name="address1" autocomplete="shipping address-line1">
-				  </label>
-				  <label>
-				    <span>建物名等</span>
-				    <input type="text" name="address2" autocomplete="shipping address-line2">
-				  </label>
-  
-                <label for="Stel">電話番号:</label>
-               	<input type="text" id="Simg" name="Simg" required>
-               	
-               	<button type="button" onclick="search()">検索</button>
-                <button type="button" onclick="goBack()">戻る</button>
-                <script>
-    function goBack() {
-        window.history.back();
-    }
-</script>
-          
-          
-        </form>
+                 
+               </div>	
+            <footer>
+			        <button class="uhome" onclick="location.href='uhome'">戻る</button>
+			        <button type="submit">検索</button>
+    		</footer>
+                </form>
         
-        
-      
-   	</div>
 </body>
 </html>
