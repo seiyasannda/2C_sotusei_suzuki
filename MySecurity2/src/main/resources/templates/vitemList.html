@@ -16,15 +16,15 @@
             <!-- Iterate over the items and display them -->
             
 				
-                <li>
-                    <p class="product-name" th:text="${item['productName']}"></p>
-        			<img th:src="'data:image/png;base64,' + ${item.imagePath}" alt="商品画像">
-        			<p class="genre" th:text="${item['genre']}"></p>
-        			<p>賞味期限・<span th:text="${item['expirationDate']}"></span></p>
-        			<p>希望小売価格・<span th:text="${item['price']}"></span>円</p>
-        			<p>値引価格・<span th:text="${item['nebiki']}"></span>円</p>
-        			<a th:href="@{'/viewItem/' + ${item['id']}}" class="button">詳細</a>
-                </li>
+        	<li th:each="item : ${items}">
+        		<p class="product-name" th:text="${item?.productName}"></p>
+        		<img th:src="'data:image/png;base64,' + ${item?.imagePath}" alt="商品画像">
+        		<p class="genre" th:text="${item?.genre}"></p>
+        		<p>賞味期限・<span th:text="${item?.expirationDate}"></span></p>
+       			<p>希望小売価格・<span th:text="${item?.price}"></span>円</p>
+        		<p>値引価格・<span th:text="${item?.nebiki}"></span>円</p>
+        		<a th:href="@{'/viewItem/' + ${item?.id}}" class="button">詳細</a>
+    		</li>
      
         </ul>
     </div>

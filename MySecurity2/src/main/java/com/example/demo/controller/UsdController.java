@@ -23,7 +23,7 @@ public class UsdController {
 	public String viewPage(@PathVariable String stores,Model model) {
 
 		List<Map<String, Object>> items = jdbcTemplate.queryForList("SELECT * FROM vitems");
-		List<Map<String, Object>> store = jdbcTemplate.queryForList("SELECT * FROM vstoretable WHERE Sname = ?",stores);
+		List<Map<String, Object>> store = jdbcTemplate.queryForList("SELECT * FROM vstoretable WHERE store_id = ?",stores);
 
 		
         // Pass the data to the HTML file
