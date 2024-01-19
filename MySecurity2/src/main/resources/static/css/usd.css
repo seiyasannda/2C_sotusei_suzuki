@@ -83,3 +83,48 @@ footer button:hover {
     height: auto;
     margin-bottom: 10px;
 }
+* 追加のCSS */
+.store-info-container {
+    display: flex;
+    align-items: center;
+    margin: 20px auto;
+    width: 80%;
+}
+
+.store-details {
+    flex: 1;
+    text-align: left;
+    padding-right: 20px; /* 写真との間隔を調整 */
+}
+
+.store-image {
+    flex: 1;
+}
+
+.store-image img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+.store-info-container {
+    display: flex;
+    align-items: center;
+    margin: 20px auto;
+    width: 80%;
+}
+
+.store-details {
+    flex: 1;
+    text-align: left;
+    padding-right: 20px; /* 写真との間隔を調整 */
+}
+
+.store-image {
+    flex: 1;
+}
+
+.store-image img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}

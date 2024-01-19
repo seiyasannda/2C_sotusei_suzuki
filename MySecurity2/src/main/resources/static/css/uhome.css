@@ -6,14 +6,15 @@ body {
     padding: 0;
     background-color: #f4f4f4;
 }
-#map-container {
-            text-align: center;
-        }
 
-        iframe {
-            display: inline-block;
-            margin: 0 auto;
-        }
+#map-container {
+    text-align: center;
+}
+
+iframe {
+    display: inline-block;
+    margin: 0 auto;
+}
 
 #column {
     margin: 20px auto;
@@ -42,17 +43,13 @@ ul#product-list li img {
     max-width: 100%;
     height: auto;
     margin-bottom: 10px;
-}
-ul#product-list li img {
-    max-width: 30%;
-    height: auto;
-    margin-bottom: 10px;
-    width: 30%; /* 画像を親要素の幅に合わせる */
+    width: 40%; /* 画像を親要素の幅に合わせる */
 }
 
 ul#product-list li p {
     margin: 10px 0;
 }
+
 footer {
     background-color: #333;
     color: #fff;
