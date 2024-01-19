@@ -11,16 +11,15 @@
 
 <body>
     <div class="login-container">
-        <div th:if="${message}" class="alert alert-success" role="alert" id="popup">
-            <p th:text="${message}"></p>
-        </div>
+      
         
-        <div id="map-container">
-	 <iframe src="https://www.geocoding.jp/api/?q=<千葉県千葉市稲毛区天台1-7-16>" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
+    
         <p th:text="${id}"></p>
         <form th:action="@{/vstoreReg}" method="post" enctype="multipart/form-data" onsubmit="showPopup()">
 			<h2>店舗情報登録画面</h2>
+			  <div th:if="${message}" class="alert alert-success" role="alert" id="popup">
+            <p th:text="${message}"></p>
+        </div>
             <label for="Sname">店舗名:</label>
             <input type="text" id="Sname" name="Sname" required>
 
@@ -64,12 +63,7 @@
             </div>
         </form>
 
-        <script>
-            // ポップアップを表示するJavaScript
-            function showPopup() {
-                document.getElementById('popup').style.display = 'block';
-            }
-        </script>
+      
     </div>
 
 </body>

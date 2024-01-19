@@ -19,6 +19,11 @@
 </style>
 <script src="https://maps.google.com/maps/api/js?key=AIzaSyDDgjsDidYAkfFuTWuD6YHkU6KBKB8TqIc"></script>
 <script src="/js/geocode.js"></script>
+ <script th:inline="javascript">
+        /*<![CDATA[*/
+        var storeDataList = /*[[${storeDataList}]]*/ [];
+        /*]]>*/
+    </script>
 </head>
 <body onload="initialize()">
     <div class="head-title">Google Maps APIを使ったサンプル。</div>
@@ -37,9 +42,12 @@
             <td id="id_keido"></td>
         </tr>
     </table>
-    <input id="address" type="textbox" th:value="${storeData}" style="line-height:1.6em;font-size:16px">
+    <select id="address" style="line-height:1.6em;font-size:16px">
+        <!-- storeDataListを反復処理してoption要素を生成 -->
+        <option th:each="storeData : ${storeDataList}" th:value="${storeData}" th:text="${storeData}"></option>
+    </select>
     <input type="button" value="ジオコーディング" onclick="codeAddress()" style="height:30px">
     <div id="map_canvas" style="width:100%;height:300px"></div>
-      <p th:text="${storeData}" ></p>
+    <p th:text="${storeData}" ></p>
 </body>
 </html>

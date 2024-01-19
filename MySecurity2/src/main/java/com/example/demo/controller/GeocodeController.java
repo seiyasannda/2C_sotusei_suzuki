@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
@@ -13,14 +15,14 @@ public class GeocodeController {
 
     @GetMapping("/geocode")
     public String showMap(Model model) {
-        // ここで必要なデータをモデルに追加する
-
-        String result = jdbcTemplate.queryForObject(
+        // SQLクエリの実行
+        List<String> results = jdbcTemplate.queryForList(
                 "SELECT CONCAT(prefecture, ' - ', city, ' - ', address1, ' - ', address2) " +
-                        "FROM vstoretable WHERE store_id = ?", String.class, 3);
+                        "FROM vstoretable",
+                String.class);
 
         // モデルにデータを追加
-        model.addAttribute("storeData", result);
+        model.addAttribute("storeDataList", results);
 
         return "geocode";
     }
