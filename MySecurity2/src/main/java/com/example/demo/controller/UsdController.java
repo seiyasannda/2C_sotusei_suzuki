@@ -31,6 +31,6 @@ public class UsdController {
         
 
         // usd.htmlを表示
-        return "test2";
+        return "usd";
     }
 }
