@@ -49,7 +49,7 @@
                 <ul th:if="${store != null && !store.isEmpty()}">
                 <th:block th:each="s : ${store}">
                     <div th:if="${s.store_id == item.store_Id}">
-                        <a th:href="@{'/usd/' + ${s.store_Id}}">
+                        <a th:href="@{'/usd/' + ${s.Sname}}">
                              <button th:text="${s.Sname}"></button>
                         </a>
                         <!-- 他の店舗情報を表示 -->
