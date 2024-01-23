@@ -71,10 +71,11 @@ public class VstoreRegController {
      		return "redirect:/vstoreReg";
    	   
    	  } else {
-   		  
+   		byte[] byteData = Simg.getBytes();
+   		String encodedImage = Base64.getEncoder().encodeToString(byteData); 
    	     String sql = "INSERT INTO vstoretable (Sname, Simg, example1, example2, postal_code, prefecture, city, address1, address2, Stel,store_id) " +
                  "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
-   	     	jdbcTemplate.update(sql, Sname, Simg.getOriginalFilename(), example1, example2, postalCode, prefecture, city, address1, address2, Stel,login_id);
+   	     	jdbcTemplate.update(sql, Sname, encodedImage, example1, example2, postalCode, prefecture, city, address1, address2, Stel,login_id);
     		redirectAttributes.addFlashAttribute("message", "登録が完了しました。");
     		return "redirect:/vstoreReg";
    	    }
