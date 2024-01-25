@@ -14,6 +14,7 @@
         <thead>
             <tr>
                 <th>店舗名</th>
+                <th>営業時間</th>
                 <th>電話番号</th>
                 <th>郵便番号</th>
                 <th>県</th>
@@ -27,6 +28,11 @@
             <!-- Loop through each store in the model attribute "store" -->
             <tr th:each="storeRow : ${store}">
                 <td th:text="${storeRow.Sname}"></td>
+                <td>
+				    <span th:text="${storeRow.example1}"></span>
+				    ～
+				    <span th:text="${storeRow.example2}"></span>
+				</td>
                 <td th:text="${storeRow.Stel}"></td>
                 <td th:text="${storeRow.postal_code}"></td>
                 <td th:text="${storeRow.prefecture}"></td>
