@@ -1,130 +1,124 @@
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
 
-#column {
-    margin: 20px auto;
-    width: 80%;
-}
+        #column {
+            margin: 20px auto;
+            width: 80%;
+        }
 
-ul#product-list {
-    list-style: none;
-    padding: 0;
-}
+        ul#product-list {
+            list-style: none;
+            padding: 0;
+        }
 
-ul#product-list li {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    margin-bottom: 10px;
-    padding: 10px;
-}
+        ul#product-list li {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
 
-ul#product-list li a {
-    text-decoration: none;
-    color: #333;
-}
+        ul#product-list li a {
+            text-decoration: none;
+            color: #333;
+        }
 
-ul#product-list li img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-}
+        ul#product-list li img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
 
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
 
-footer button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
+        footer button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
 
-footer button:hover {
-    background-color: #45a049;
-}
+        footer button:hover {
+            background-color: #45a049;
+        }
 
-/* 追加のCSS */
-.store-info-container {
-    display: flex;
-    align-items: center;
-    margin: 20px auto;
-    width: 80%;
-}
+        .store-info-container {
+            display: flex;
+            align-items: center;
+            margin: 20px auto;
+            width: 80%;
+        }
 
-.store-details {
-    flex: 1;
-    text-align: left;
-    padding-right: 20px; /* 写真との間隔を調整 */
-}
+        .store-details {
+            flex: 1;
+            text-align: left;
+            padding-right: 20px; /* 写真との間隔を調整 */
+        }
 
-.store-image {
-    flex: 1;
-}
+        .store-image {
+            flex: 1;
+        }
 
-.store-image img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-}
-* 追加のCSS */
-.store-info-container {
-    display: flex;
-    align-items: center;
-    margin: 20px auto;
-    width: 80%;
-}
+        .store-image img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
 
-.store-details {
-    flex: 1;
-    text-align: left;
-    padding-right: 20px; /* 写真との間隔を調整 */
-}
+        table {
+            border-collapse: collapse;
+            width: 70%;
+        }
 
-.store-image {
-    flex: 1;
-}
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
 
-.store-image img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-}
-.store-info-container {
-    display: flex;
-    align-items: center;
-    margin: 20px auto;
-    width: 80%;
-}
+        td img {
+            max-width: 100px;
+            max-height: 100px;
+            display: block;
+            margin: auto;
+        }
 
-.store-details {
-    flex: 1;
-    text-align: left;
-    padding-right: 20px; /* 写真との間隔を調整 */
-}
+        .image-column {
+            width: 30%;
+        }
 
-.store-image {
-    flex: 1;
-}
+        @media (max-width: 600px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
 
-.store-image img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-}
+            tr {
+                margin-bottom: 10px;
+            }
+
+            td {
+                text-align: left;
+                padding: 8px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
