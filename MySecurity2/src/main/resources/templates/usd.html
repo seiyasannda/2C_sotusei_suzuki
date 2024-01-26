@@ -39,32 +39,14 @@
                 <td th:text="${storeRow.city}"></td>
                 <td th:text="${storeRow.address1}"></td>
                 <td th:text="${storeRow.address2}"></td>
-                <td>
-                    
-                    
+                <td>                  
                     <img th:src="'data:image/png;base64,' + ${storeRow.Simg}" alt="商品画像">
                 </td>
             </tr>
         </tbody>
     </table>
-    <div id="myModal" class="modal">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <img src="" alt="拡大画像" class="modal-content" id="modalImage">
-</div>
-<script>
-    // モーダルを開く
-    function openModal(imgElement) {
-        var modal = document.getElementById("myModal");
-        var modalImg = document.getElementById("modalImage");
-        modal.style.display = "block";
-        modalImg.src = imgElement.src;
-    }
+    
 
-    // モーダルを閉じる
-    function closeModal() {
-        document.getElementById("myModal").style.display = "none";
-    }
-</script>
 
 
     <div id="column" class="column05">
