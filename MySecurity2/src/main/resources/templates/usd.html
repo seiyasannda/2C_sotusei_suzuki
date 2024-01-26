@@ -5,7 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/usd.css}">
-    <script src="/js/Vitem.js"></script>
+<style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        #column {
+            margin: 20px auto;
+            width: 80%;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        td img {
+            max-width: 100px;
+            max-height: 100px;
+            display: block;
+            margin: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 影を追加 */
+        }
+
+        .image-column {
+            width: 30%;
+        }
+    </style>
+
     <title>店舗詳細</title>
 </head>
 <body>

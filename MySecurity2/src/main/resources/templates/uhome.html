@@ -25,14 +25,13 @@
 </head>
 <body onload="initialize()">
     
+    <div id="map-container">
     <select id="address">
-    <option th:each="address : ${addresses}" th:value="${address}" th:text="${address}"></option>
-	</select>
-
-    <input id="address" type="textbox" th:value="${storeData}" style="line-height:1.6em;font-size:16px">
-    <input type="button" value="ジオコーディング" onclick="codeAddress()" style="height:30px">
-    <div id="map_canvas" style="width:100%;height:300px"></div>
-      <p th:text="${storeData}" ></p>
+        <option th:each="address : ${addresses}" th:value="${address}" th:text="${address}"></option>
+    </select>
+    <div id="map_canvas" class="map-canvas"></div>
+</div>
+      
 </body>
 <body>
 	
@@ -49,7 +48,7 @@
 				</div>
 		        <div>
 				    <span>画像:</span>
-				    <img th:src="'data:image/png;base64,' + ${item.imagePath}">
+				    <img th:src="'data:image/png;base64,' + ${item.imagePath}"class="product-image">
 				</div>
 				
 				<div>
@@ -70,10 +69,12 @@
 				</div>
                 
                 <!-- 対応する店舗を表示 -->
-                <ul th:if="${store != null && !store.isEmpty()}">
+                 <ul th:if="${store != null && !store.isEmpty()}">
+               
                 <th:block th:each="s : ${store}">
                     <div th:if="${s.store_id == item.store_Id}">
                         <a th:href="@{'/usd/' + ${s.Sname}}">
+                             <span>取り扱い店舗:</span>
                              <button th:text="${s.Sname}"></button>
                         </a>
                         <!-- 他の店舗情報を表示 -->

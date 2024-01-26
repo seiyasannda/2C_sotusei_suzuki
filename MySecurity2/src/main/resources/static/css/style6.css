@@ -1,4 +1,4 @@
-@charset "UTF-8";body {
+body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,21 +7,25 @@
     background-color: #f4f4f4;
 }
 
-.login-container {
+#search-form {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
     text-align: center;
+    width: 50%; /* 画面幅の80%に制限 */
 }
 
-h2 {
+h1 {
     margin-bottom: 20px;
     color: #333;
 }
 
 .form-group {
     margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 label {
@@ -31,14 +35,18 @@ label {
     color: #555;
 }
 
-input[type="text"], input[type="password"] {
-    width: 100%;
-  
+input[type="text"],
+input[type="password"],
+select,
+input[type="date"]
+{
+    width: calc(100% - 16px); /* 幅100%からpaddingを考慮して16px引く */
     padding: 8px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    
+    box-sizing: border-box; /* paddingを要素の幅に含める */
+    margin-bottom: 10px;
 }
 
 button {
@@ -55,4 +63,10 @@ button {
 
 button:hover {
     background-color: #45a049;
+}
+
+.uhome {
+    background-color: #ccc;
+    color: #333;
+    margin-top: 10px;
 }

@@ -1,14 +1,24 @@
-/* style3.css */
+/* Reset some default styles */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
 
 body {
     font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
     background-color: #f4f4f4;
 }
 
 #map-container {
     text-align: center;
+}
+.map-canvas {
+    width: 90%; /* Adjust the width as needed */
+    height: 500px;
+    margin: 0 auto; /* Center the map within its container */
+    border: 1px solid #ddd; /* Add a border for better visibility */
+    border-radius: 8px; /* Optional: Add border-radius for rounded corners */
+    overflow: hidden; /* Ensure that the map doesn't overflow its container */
 }
 
 iframe {
@@ -30,24 +40,29 @@ ul#product-list {
 ul#product-list li {
     background-color: #fff;
     border: 1px solid #ddd;
-    margin-bottom: 10px;
-    padding: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
 }
 
 ul#product-list li a {
     text-decoration: none;
     color: #333;
+    font-weight: bold;
 }
 
 ul#product-list li img {
     max-width: 100%;
     height: auto;
-    margin-bottom: 10px;
-    width: 40%; /* 画像を親要素の幅に合わせる */
+    margin-bottom: 20px;
+    width: 100%; /* 画像を親要素の幅に合わせる */
 }
 
-ul#product-list li p {
-    margin: 10px 0;
+/* New style to limit the image size */
+ul#product-list li img.product-image {
+    max-width: 150px; /* Adjust the maximum width as needed */
+    height: auto;
+    margin-bottom: 20px;
+    width: 100%; /* 画像を親要素の幅に合わせる */
 }
 
 footer {
@@ -71,6 +86,7 @@ footer button {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 footer button:hover {
