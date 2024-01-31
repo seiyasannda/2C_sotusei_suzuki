@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/css/uhome.css}">
+    <link rel="stylesheet" th:href="@{/css/ussr.css}">
     <script src="/js/Vitem.js"></script>
     <title>店舗検索結果</title>
 </head>
@@ -18,7 +18,8 @@
 		        <div>
     				<span>店舗名:</span>
     				<a th:href="@{'/usd/' + ${storeRow.Sname}}">
-    				<button th:text="${storeRow.Sname}" style="color: red;"></button>
+    				<button class="store-button" th:text="${storeRow.Sname}"></button>
+
     				</a>
 				</div>
 		        <div>

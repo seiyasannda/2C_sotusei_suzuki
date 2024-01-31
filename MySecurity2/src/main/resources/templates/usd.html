@@ -1,146 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/usd.css}">
-<style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
 
-        #column {
-            margin: 20px auto;
-            width: 80%;
-        }
-
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        th, td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: left;
-        }
-
-        td img {
-            max-width: 100px;
-            max-height: 100px;
-            display: block;
-            margin: auto;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 影を追加 */
-        }
-
-        .image-column {
-            width: 30%;
-        }
-    </style>
 
     <title>店舗詳細</title>
 </head>
+
 <body>
-    <h1>店舗詳細</h1>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>店舗名</th>
-                <th>営業時間</th>
-                <th>電話番号</th>
-                <th>郵便番号</th>
-                <th>県</th>
-                <th>市</th>
-                <th>町名、番地</th>
-                <th>建物名</th>
-                <th>外観</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Loop through each store in the model attribute "store" -->
-            <tr th:each="storeRow : ${store}">
-                <td th:text="${storeRow.Sname}"></td>
-                <td>
-				    <span th:text="${storeRow.example1}"></span>
-				    ～
-				    <span th:text="${storeRow.example2}"></span>
-				</td>
-                <td th:text="${storeRow.Stel}"></td>
-                <td th:text="${storeRow.postal_code}"></td>
-                <td th:text="${storeRow.prefecture}"></td>
-                <td th:text="${storeRow.city}"></td>
-                <td th:text="${storeRow.address1}"></td>
-                <td th:text="${storeRow.address2}"></td>
-                <td>                  
-                    <img th:src="'data:image/png;base64,' + ${storeRow.Simg}" alt="商品画像">
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    
+    <div class="fixed-container">
+        <h1>店舗詳細</h1>
 
-
-
-    <div id="column" class="column05">
-        <ul id="product-list" class="column03">
-            <!-- Loop through each store in the model attribute "store" -->
-            <th:block th:each="storeRow : ${store}">
-                <!-- Loop through each item in the model attribute "items" -->
-                <th:block th:each="item : ${items}">
-                    <!-- 特定の条件に基づいてHTMLを表示 -->
-                    <th:block th:if="${storeRow['store_id'] == item['store_Id']}">
+        <div class="column04">
+            <ul class="column02">
+                <!-- Loop through each store in the model attribute "store" -->
+                <th:block th:each="storeRow : ${store}">
+                    <div class="store-details">
+                       
+                           <div class="image-column">
+                                <span>外観:</span>
+                                <img th:src="'data:image/png;base64,' + ${storeRow.Simg}" alt="外観画像">
+                            </div>
+                       
+                       
                         <li>
-                            <!-- 商品の詳細を表示 -->
-                            <a href="#">
-                                <!-- 商品名 -->
-                                <div>
-                                    <span>商品名:</span>
-                                    <span th:text="${item.productName}" style="color: red;"></span>
-                                </div>
-                                <!-- 画像 -->
-                                <div>
-                                    <span>画像:</span>
-                                    <img th:src="'data:image/png;base64,' + ${item.imagePath}">
-                                </div>
-                                <!-- 値段 -->
-                                <div>
-                                    <span>値段:</span>
-                                    <span th:text="${item.price}"></span>
-                                </div>
-                                <!-- 値引き値段 -->
-                                <div>
-                                    <span>値引き値段:</span>
-                                    <span th:text="${item.nebiki}"></span>
-                                </div>
-                                <!-- ジャンル -->
-                                <div>
-                                    <span>ジャンル:</span>
-                                    <span th:text="${item.genre}"></span>
-                                </div>
-                                <!-- 賞味期限 -->
-                                <div>
-                                    <span>賞味期限:</span>
-                                    <span th:text="${#dates.format(item.expirationDate, 'yyyy-MM-dd')}"></span>
-                                </div>
-                            </a>
-                        </li>
+                            <div>
+                                <span>店舗名:</span>
+                                <span th:text="${storeRow.Sname}"></span>
+                            </div>
+                            <div>
+                                <span>営業時間:</span>
+                                <span th:text="${storeRow.example1}"></span>
+                                ～
+                                <span th:text="${storeRow.example2}"></span>
+                            </div>
+                            <div>
+                                <span>電話番号:</span>
+                                <span th:text="${storeRow.Stel}"></span>
+                            </div>
+                            <div>
+                                <span>郵便番号:</span>
+                                <span th:text="${storeRow.postal_code}"></span>
+                            </div>
+                            <div>
+                                <span>県:</span>
+                                <span th:text="${storeRow.prefecture}"></span>
+                            </div>
+                            <div>
+                                <span>市:</span>
+                                <span th:text="${storeRow.city}"></span>
+                            </div>
+                            <div>
+                                <span>町名.番地:</span>
+                                <span th:text="${storeRow.address1}"></span>
+                            </div>
+                            <div>
+                                <span>建物名:</span>
+                                <span th:text="${storeRow.address2}"></span>
+                            </div>
+                             </li>
+                        
+                       
+                    </div>
+                </th:block>
+            </ul>
+        </div>
+
+        <div class="column05">
+            <ul class="column03">
+                <!-- Loop through each store in the model attribute "store" -->
+                <th:block th:each="storeRow : ${store}">
+                    <!-- Loop through each item in the model attribute "items" -->
+                    <th:block th:each="item : ${items}">
+                        <!-- 特定の条件に基づいてHTMLを表示 -->
+                        <th:block th:if="${storeRow['store_id'] == item['store_Id']}">
+                            <li>
+                                <!-- 商品の詳細を表示 -->
+                                <a href="#">
+                                    <div>
+                                        <span>商品名:</span>
+                                        <span th:text="${item.productName}" style="color: red;"></span>
+                                    </div>
+                                    <div>
+                                        <span>画像:</span>
+                                        <img th:src="'data:image/png;base64,' + ${item.imagePath}">
+                                    </div>
+                                    <div>
+                                        <span>値段:</span>
+                                        <span th:text="${item.price}"></span>
+                                    </div>
+                                    <div>
+                                        <span>値引き値段:</span>
+                                        <span th:text="${item.nebiki}"></span>
+                                    </div>
+                                    <div>
+                                        <span>ジャンル:</span>
+                                        <span th:text="${item.genre}"></span>
+                                    </div>
+                                    <div>
+                                        <span>賞味期限:</span>
+                                        <span th:text="${#dates.format(item.expirationDate, 'yyyy-MM-dd')}"></span>
+                                    </div>
+                                </a>
+                            </li>
+                        </th:block>
                     </th:block>
                 </th:block>
-            </th:block>
-        </ul>
-    </div>
-    <br>
-    <br>
-    <br>
-    <footer>
-        <button class="uhome" onclick="window.history.back();">戻る</button>  
-    </footer>
+            </ul>
+        </div>
 
-    <!-- geocode.html のコンテンツを組み込む -->
-    <div th:utext="${geocodeContent}"></div>
+        <footer>
+            <button class="uhome" onclick="window.history.back();">戻る</button>
+        </footer>
+
+        <!-- geocode.html のコンテンツを組み込む -->
+        <div th:utext="${geocodeContent}"></div>
+    </div>
 </body>
+
 </html>

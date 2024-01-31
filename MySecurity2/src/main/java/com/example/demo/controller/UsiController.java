@@ -66,7 +66,7 @@ public class UsiController {
 
 	    model.addAttribute("items", items);
 	    model.addAttribute("store", store);
-	    return "uhome";
+	    return "usir";
 	}
 }
 

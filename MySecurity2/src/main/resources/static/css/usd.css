@@ -1,3 +1,4 @@
+/* Add your CSS styles here */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -5,45 +6,124 @@ body {
     background-color: #f4f4f4;
 }
 
-#column {
-    margin: 20px auto;
+.fixed-container {
     width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-ul#product-list {
+h1 {
+    text-align: center;
+}
+
+.column04 {
+	width:100%;
+    margin-bottom: 20px;
+}
+
+.column05 {
+    margin-bottom: 20px;
+}
+
+.store-details {
+	
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.store-details div {
+  
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.store-details .image-column {
+    width: 30%;
+    padding-right: 20px;
+    box-sizing: border-box;
+    clear: both;
+    order: 2; /* 追加: image-columnを右に表示 */
+ 	  background-color: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding: 10px;
+
+}
+
+.store-details img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.store-details span {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.column02 {
     list-style: none;
     padding: 0;
 }
 
-ul#product-list li {
+.column03 {
+    list-style: none;
+    padding: 0;
+}
+
+.column02 li {
     background-color: #fff;
     border: 1px solid #ddd;
-    margin-bottom: 20px;
-    padding: 20px;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 65%
 }
 
-ul#product-list li a {
+.column03 li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.column02 li a {
     text-decoration: none;
     color: #333;
-    font-weight: bold;
 }
 
-ul#product-list li img {
-    max-width: 20%; /* 画像の最大幅を設定 */
-    max-height: 20%; /* 画像の最大高さを設定 */
+.column03 li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.column02 li img {
+    max-width: 100%;
     height: auto;
-    margin-bottom: 20px;
-    width: 100%; /* 親要素に合わせて幅を100%に設定 */
+    margin-bottom: 10px;
+}
+
+.column03 li img {
+    max-width: 20%;
+    height: auto;
+    margin-bottom: 10px;
 }
 
 footer {
+  text-align: center;
+    margin-top: 20px;
     background-color: #333;
     color: #fff;
     text-align: center;
     padding: 10px;
     position: fixed;
     bottom: 0;
-    width: 100%;
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 footer button {
@@ -57,73 +137,8 @@ footer button {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-    border-radius: 5px;
 }
 
 footer button:hover {
     background-color: #45a049;
-}
-
-.store-info-container {
-    display: flex;
-    align-items: center;
-    margin: 20px auto;
-    width: 80%;
-}
-
-.store-details {
-    flex: 1;
-    text-align: left;
-    padding-right: 20px;
-}
-
-.store-image {
-    flex: 1;
-}
-
-.store-image img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 20px;
-}
-
-table {
-    border-collapse: collapse;
-    width: 70%;
-    margin: 20px auto;
-}
-
-th, td {
-    border: 1px solid black;
-    padding: 8px;
-    text-align: left;
-}
-
-td img {
-    max-width: 100px;
-    max-height: 100px;
-    display: block;
-    margin: auto;
-}
-
-.image-column {
-    width: 30%;
-}
-
-@media (max-width: 600px) {
-    table, thead, tbody, th, td, tr {
-        display: block;
-    }
-
-    tr {
-        margin-bottom: 10px;
-    }
-
-    td {
-        text-align: left;
-        padding: 8px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
 }

@@ -1,0 +1,120 @@
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f8f8f8;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #333;
+}
+
+.column05 {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.column03 {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* 他のスタイルは省略 */
+
+.column03 li {
+    width: calc(33.33% - 20px);
+    margin: 10px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.column03 li:hover {
+    transform: translateY(-5px);
+}
+
+/* 他のスタイルは省略 */
+
+
+.product-image {
+    max-width: 100%;
+    height: auto;
+}
+
+div {
+    margin-bottom: 10px;
+}
+
+/* 他のスタイルは省略 */
+
+.column03 span {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #333; /* テキストの色 */
+}
+
+/* 他のスタイルは省略 */
+
+
+.store-button {
+    background-color: rgb(76, 175, 80); /* ボタンの背景色 */
+    color: #fff; /* ボタンのテキスト色 */
+    padding: 15px 25px; /* ボタンのパディング */
+    font-size: 18px; /* ボタンのフォントサイズ */
+    border: none; /* ボタンのボーダーなし */
+    border-radius: 5px; /* ボタンの角丸 */
+    cursor: pointer; /* ボタンにカーソルを変更 */
+    transition: background-color 0.3s ease; /* ホバー時の色変化を滑らかにするトランジション */
+
+    /* ボタンの影を追加 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.store-button:hover {
+    background-color: rgb(76, 175, 80); /* ホバー時の背景色 */
+}
+
+
+
+button.uss {
+    background-color: rgb(76, 175, 80);
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button.uss:hover {
+    background-color:#4CAF50;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+}
