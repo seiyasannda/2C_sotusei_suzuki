@@ -40,7 +40,7 @@ public class VdbRegController {
 
     @PostMapping("/vdbReg")
     public String registerVitem(
-    		 @RequestParam("barcode") String barcode,
+    		@RequestParam("barcode") String barcode,
             @RequestParam("productName") String Iname,
             @RequestParam("imagePath") MultipartFile Iimg,
             @RequestParam("genre") String genre,

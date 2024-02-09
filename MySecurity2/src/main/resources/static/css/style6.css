@@ -13,12 +13,14 @@ body {
     border-radius: 5px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 50%; /* 画面幅の80%に制限 */
+    width: 80%; /* 画面幅の80%に制限 */
+    max-width: 400px; /* 最大幅を設定 */
 }
 
 h1 {
     margin-bottom: 20px;
     color: #333;
+    font-size: 24px; /* 見出しのフォントサイズを大きく */
 }
 
 .form-group {
@@ -33,21 +35,25 @@ label {
     font-weight: bold;
     margin-bottom: 5px;
     color: #555;
+    font-size: 16px; /* ラベルのフォントサイズを調整 */
 }
 
 input[type="text"],
 input[type="password"],
 select,
-input[type="date"]
-{
-    width: calc(100% - 16px); /* 幅100%からpaddingを考慮して16px引く */
-    padding: 8px;
+input[type="date"],
+input[type="time"] {
+    width: 100%;
+    padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-sizing: border-box; /* paddingを要素の幅に含める */
+    box-sizing: border-box;
     margin-bottom: 10px;
 }
+
+
+
 
 button {
     background-color: #4caf50;

@@ -69,6 +69,15 @@ public class VitemEditController {
         }
     }
     
+    @RequestMapping(path = "/deleteItem", method = RequestMethod.POST)
+    public String deleteItem(@RequestParam("itemId") Long itemId,
+                             RedirectAttributes redirectAttributes) {
+        // 商品情報をデータベースで削除
+        jdbcTemplate.update("DELETE FROM vitems WHERE id = ?", itemId);
+        redirectAttributes.addFlashAttribute("message", "商品情報が削除されました。");
+        return "redirect:/vitemList";
+    }
+    
     @RequestMapping(path = "/barItem", method = RequestMethod.POST)
     public String barItem(@RequestParam("itemId") Long itemId,
                              @RequestParam("productName") String productName,

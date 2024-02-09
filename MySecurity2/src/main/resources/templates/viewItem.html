@@ -62,8 +62,14 @@
 
             <a th:href="@{/vitemList}" class="button">戻る</a>
             <button type="submit">更新</button>
-        </form>
-         
+           
+              
+        </form>  
+      
+        <form th:action="@{/deleteItem}" method="post">
+    			<input type="hidden" name="itemId" th:value="${item.id}">
+    			<button type="submit">削除</button>
+			</form>
             
   
     </div>
@@ -72,5 +78,6 @@
 		
      
     </footer>
+        
 </body>
 </html>

@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 import java.util.Map;
@@ -17,26 +18,28 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @SessionAttributes("id")
 public class VitemListController {
 
-	@Autowired
-	JdbcTemplate jdbcTemplate;
+    @Autowired
+    JdbcTemplate jdbcTemplate;
 
-	   @RequestMapping(path = "/vitemList", method = RequestMethod.GET)
-	    public String viewPage(@SessionAttribute("id") String id,Model model) {
-	        // Fetch data from the database, assuming you have a table named 'items'
-	        List<Map<String, Object>> items = jdbcTemplate.queryForList("SELECT * FROM vitems WHERE store_id = ?",id);
+    @RequestMapping(path = "/vitemList", method = RequestMethod.GET)
+    public String viewPage(@SessionAttribute("id") Long id, Model model) {
+        // Fetch data from the database, assuming you have a table named 'items' and filtering by store_id
+        List<Map<String, Object>> items = jdbcTemplate.queryForList("SELECT * FROM vitems WHERE store_id = ?", id);
 
-//	        byte[] imageData = jdbcTemplate.queryForObject("SELECT imagePath FROM vitems WHERE id = ?", byte[].class, id);
-//	        String encodedImage = Base64.getEncoder().encodeToString(imageData);
-//
-//	     // モデルにエンコードされた画像データを追加
-//	        model.addAttribute("encodedImage", encodedImage);
-	        // Pass the data to the HTML file
-	        model.addAttribute("items", items);
+        // List to store encoded image data for each item
+        List<String> encodedImages = new ArrayList<>();
 
-	        return "vitemList";
-	    }
+        // Fetch and encode image data for each item
+        for (Map<String, Object> item : items) {
+            byte[] imageData = jdbcTemplate.queryForObject("SELECT imagePath FROM vitems WHERE id = ?", byte[].class, item.get("id"));
+            String encodedImage = Base64.getEncoder().encodeToString(imageData);
+            encodedImages.add(encodedImage);
+        }
 
-	//一覧表示用
-	
-	
+        // Pass the data to the HTML file
+        model.addAttribute("items", items);
+        model.addAttribute("encodedImages", encodedImages);
+
+        return "vitemList";
+    }
 }

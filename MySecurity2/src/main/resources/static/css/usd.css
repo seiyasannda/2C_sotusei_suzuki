@@ -27,10 +27,18 @@ h1 {
 }
 
 .store-details {
-	
     display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
+    justify-content: flex-end;
+}
+
+/* 画像のスタイル調整 */
+.image-column {
+    margin-left: 20px; /* 必要に応じて調整してください */
+}
+
+.image-column img {
+    max-width: 100%; /* 画像の幅が親要素に収まるように */
+    height: auto; /* アスペクト比を保持したまま */
 }
 
 .store-details div {
@@ -51,6 +59,7 @@ h1 {
     padding: 10px;
 
 }
+
 
 .store-details img {
     max-width: 100%;

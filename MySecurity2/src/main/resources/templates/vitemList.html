@@ -11,10 +11,16 @@
 </head>
 
 <body>
+	
     <div id="column" class="column05">
+		
+		
+		 <div th:if="${message}" class="alert alert-success" role="alert" id="popup">
+            <p th:text="${message}"></p>
+        </div>
         <ul id="product-list" class="column03">
             <!-- Iterate over the items and display them -->
-            
+       
 				
         	<li th:each="item : ${items}">
         		<p class="product-name" th:text="${item?.productName}"></p>
